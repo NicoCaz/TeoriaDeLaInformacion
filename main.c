@@ -42,15 +42,20 @@ int anytoint(char *s, char **out) {
 
 void cargalista(TLista *L, int dato){
 TLista nuevo,act,ant;
+int total=0;
 
 nuevo=(TLista)malloc(sizeof(nodo));
 nuevo->catidad=1;
 nuevo->palabra=dato;
 nuevo->sig=NULL;
-if(*L==NULL || (*L)->palabra>dato){
+if((*L)==NULL || (*L)->palabra>dato){
     if(*L==NULL){
         *L=nuevo;
         (*L)->sig=NULL;
+    }
+    else{
+        nuevo->sig=*L;
+        *L=nuevo;
     }
 }
 else{
