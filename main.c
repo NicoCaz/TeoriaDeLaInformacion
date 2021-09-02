@@ -9,19 +9,16 @@ typedef struct datos{
 }datos;
 
 void leeArchivo(char archFuente[],int tamanioPalabra,datos vec[],int *cant);
-int anytoint(char *s, char **out);
 void calculoCantInformacion(datos vec[],int cant,int tamanio);
 void calculoCantEntropia(datos vec[],int cant,int tamanio);
 void muestravec(datos vec[],int x);
 void inicializavec(datos vec[]);
-
 float logbase(double a, double base);
-void clear();
 
 
 int main(int cantArgc, char *arg[]){
     int cant=0;
-    datos vec[1000];
+    datos vec[512]; //el caso maximo
     int tamanio=9;
     inicializavec(vec);
     leeArchivo("anexo1.txt",tamanio,vec,&cant);
@@ -34,14 +31,12 @@ int main(int cantArgc, char *arg[]){
 
 void leeArchivo(char archFuente[],int tamanioPalabra,datos vec[],int *cant){
     char palabra[tamanioPalabra+1];
-    char aux[tamanioPalabra+1];
     FILE* arch = fopen(archFuente,"rt");
-    int x;
+    int indice;
     while(fgets(palabra,tamanioPalabra+1,arch)!=NULL){
-        strcpy(aux,palabra);
-        x=strtoul(aux,NULL ,2);
-        strcpy(vec[x].palabra,palabra);
-        vec[x].repeticiones++; //inicializar esto
+        indice=strtoul(palabra,NULL ,2); //strtoul converite el string a decimal con la base inicada(2)
+        strcpy(vec[indice].palabra,palabra);
+        vec[indice].repeticiones++;
         (*cant)++;
     }
 }
@@ -55,10 +50,10 @@ void calculoCantInformacion(datos vec[],int cant,int tamanio){
         if(vec[i].repeticiones!=0){
             printf("palabra: %s cant: %d  palabra nro: %d \n",vec[i].palabra,vec[i].repeticiones,i);
             prob=(vec[i].repeticiones/(float)cant);
-            printf("la cantidad de informacion es de:%f \n",-logbase(prob,2));
+            printf("la cantidad de informacion es de:%f bits\n",-logbase(prob,2));
         }else{
             printf("La palabra numero %d nunca aparece!! \n ",i);
-            printf("la cantidad de informacion es de: 0\n");
+            printf("la cantidad de informacion es de: 0 bits\n");
         }
     }   
 }
