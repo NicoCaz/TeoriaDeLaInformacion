@@ -11,12 +11,19 @@ typedef struct nodo
 }nodo;
 typedef nodo*TLista;
 
-void leeArchivo(char archFuente[],int tamanioPalabra,TLista *L,int *cant);
+typedef struct datos{
+    char palabra[20];
+    int repeticiones;
+}datos;
+
+void leeArchivo(char archFuente[],int tamanioPalabra,datos vec[],int *cant);
 int anytoint(char *s, char **out);
 void cargalista(TLista *L, char dato[50]);
 void muestraLista(TLista L);
 void calculoCantInformacion(TLista L,int cant);
 void calculoCantEntropia(TLista L,int cant);
+void muestravec(datos vec[],int x);
+void inicializavec(datos vec[]);
 
 float logbase(double a, double base);
 void clear();
@@ -26,64 +33,40 @@ int main(int cantArgc, char *arg[]){
 
     TLista L=NULL;
     int cant=0;
-   
-    leeArchivo("anexo1.txt",9,&L,&cant);
-    calculoCantInformacion(L,cant);
-    calculoCantEntropia(L,cant);
+   datos vec[1000];
+   inicializavec(vec);
+    leeArchivo("anexo1.txt",9,vec,&cant);
+   // muestravec(vec,pow(2,5));
+   // calculoCantInformacion(L,cant);
+   // calculoCantEntropia(L,cant);
     return 0;
 }
 
 
-void leeArchivo(char archFuente[],int tamanioPalabra,TLista *L,int *cant){
+void leeArchivo(char archFuente[],int tamanioPalabra,datos vec[],int *cant){
     char palabra[tamanioPalabra+1];
+    char aux[tamanioPalabra+1];
     FILE* arch = fopen(archFuente,"rt");
+    int x;
     while(fgets(palabra,tamanioPalabra+1,arch)!=NULL){
-        cargalista(L,palabra);
+        strcpy(aux,palabra);
+        x=strtoul(aux,NULL ,2);
+        strcpy(vec[x].palabra,palabra);
+        vec[x].repeticiones++; //inicializar esto
         (*cant)++;
        // printf("%s \n",palabra);
     }
-}
-
-void cargalista(TLista *L, char dato[50]){
-    TLista nuevo,act,ant;
-    nuevo=(TLista)malloc(sizeof(nodo));
-    nuevo->catidad=1;
-    strcpy(nuevo->palabra,dato);
-    nuevo->sig=NULL;
-    if((*L)==NULL || strcmp((*L)->palabra,dato)>0){
-        if(*L==NULL){
-            *L=nuevo;
-            (*L)->sig=NULL;
-        }else{
-            nuevo->sig=*L;
-            *L=nuevo;
-        }
-    }else{
-        ant=NULL;
-        act=(*L);
-        while (act!=NULL && strcmp(act->palabra,dato)<0){
-            ant=act;
-            act=act->sig;
-        }
-        if(act==NULL || strcmp(act->palabra,dato)!=0){ //inserto
-            ant->sig=nuevo;
-            nuevo->sig=act;
-        }
-        else{//actualizo
-            free(nuevo);
-            act->catidad++;
-        }
-    }
-
 }
 
 
 void calculoCantInformacion(TLista L,int cant){
     float cantidadInfo;
     float prob;
+    int i=0;
     while(L!=NULL){
-        printf("palabra: %s cant: %d  \n",L->palabra,L->catidad);
+        printf("palabra: %s cant: %d  palabra nro: %d \n",L->palabra,L->catidad,i);
         prob=(L->catidad/(float)cant);
+        i++;
         printf("la cantidad de informacion es de:%f \n",-logbase(prob,2));
         L=L->sig;
     }
@@ -105,34 +88,16 @@ float logbase(double a, double base){
    return log(a) /log(base);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void muestraLista(TLista L){
-    while(L!=NULL){
-        printf("palabra: %s cant: %d  \n",L->palabra,L->catidad);
-        L=L->sig;
+void muestravec(datos vec[],int n){
+    for(int i=0;i<n;i++){
+        printf("%d %s %d \n",i,vec->palabra,vec->repeticiones);
     }
 }
-
+void inicializavec(datos vec[]){
+for(int i=0;i<600;i++){
+    vec[i].repeticiones=0;
+}
+}
 
 int anytoint(char *s, char **out) {
     char *BASES = {"********@*#*****%"};
@@ -146,15 +111,6 @@ int anytoint(char *s, char **out) {
 }
 
 
-void clear(){
-    #if defined(__linux__) || defined(__unix__) || defined(__Apple__)
-        system("clear");
-    #endif
-
-    #if defined(_WIN32) || defined(_WIN64)
-        system("cls");
-    #endif
-}
 
 
 void contarChar(char arch1[]){
