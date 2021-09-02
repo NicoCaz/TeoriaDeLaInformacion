@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 typedef struct nodo
 {
     int palabra,catidad;
@@ -9,13 +8,24 @@ typedef struct nodo
 }nodo;
 typedef nodo*TLista;
 
+void leeArchivo(char archFuente[],int tamanioPalabra,TLista *L);
+int anytoint(char *s, char **out);
+void cargalista(TLista *L, int dato);
+void muestraLista(TLista L);
+int main(int cantArgc, char *arg[]){
+    TLista L=NULL;
+    leeArchivo("anexo1.txt",5,&L);
+    muestraLista(L);
+    return 0;
+}
 
-void leeArchivo(char archFuente[],int tamanioPalabra){
+
+void leeArchivo(char archFuente[],int tamanioPalabra,TLista *L){
     char palabra[tamanioPalabra+1];
     FILE* arch = fopen(archFuente,"rt");
     while(fgets(palabra,tamanioPalabra+1,arch)!=NULL){
-        
-        printf("%c  ",palabra);
+        cargalista(L,anytoint(palabra,NULL));
+       // printf("%s \n",palabra);
     }
 }
 
@@ -44,6 +54,7 @@ if(*L==NULL || (*L)->palabra>dato){
     }
 }
 else{
+    ant=(*L);
     act=(*L)->sig;
     while (act!=NULL && act->palabra<dato){
         ant=act;
@@ -61,10 +72,10 @@ else{
 
 }
 
-int main(int cantArgc, char *arg[]){
-    leeArchivo("anexo1.txt",5);
-  //  leeArchivo("anexo1.txt",8);
-    return 0;
+
+void muestraLista(TLista L){
+    while(L!=NULL){
+        printf("palabra: %d cant: %d  \n",L->palabra,L->catidad);
+        L=L->sig;
+    }
 }
-
-
