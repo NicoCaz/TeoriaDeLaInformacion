@@ -16,11 +16,12 @@ int anytoint(char *s, char **out);
 void cargalista(TLista *L, char dato[50]);
 void muestraLista(TLista L);
 void calculoCantInformacion(TLista L,int cant);
+float logbase(double a, double base);
 void clear();
 
 
 int main(int cantArgc, char *arg[]){
-    system("cls");
+
     TLista L=NULL;
     int cant=0;
     leeArchivo("anexo1.txt",5,&L,&cant);
@@ -73,27 +74,52 @@ void cargalista(TLista *L, char dato[50]){
 }
 
 
-void muestraLista(TLista L){
-    while(L!=NULL){
-        printf("palabra: %s cant: %d  \n",L->palabra,L->catidad);
-        L=L->sig;
-    }
-}
-
-float logbase(double a, double base)
-{
-   return log(a) / log(base);
-}
-
 void calculoCantInformacion(TLista L,int cant){
     float cantidadInfo;
     float prob;
     while(L!=NULL){
         printf("palabra: %s cant: %d  \n",L->palabra,L->catidad);
         prob=(L->catidad/(float)cant);
-        printf("%f \n",prob);
-        cantidadInfo=logbase(1/(float)prob,2);
-        //printf("la cantidad de informacion es de:%f \n",calculoCantInformacion);
+        //printf("%f \n",prob);
+        //cantidadInfo=(float)logbase(prob,2);
+        printf("la cantidad de informacion es de:%f \n",-logbase(prob,2));
+        L=L->sig;
+    }
+}
+float logbase(double a, double base){
+   return log(a) /log(base);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void muestraLista(TLista L){
+    while(L!=NULL){
+        printf("palabra: %s cant: %d  \n",L->palabra,L->catidad);
         L=L->sig;
     }
 }
