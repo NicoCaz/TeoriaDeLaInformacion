@@ -18,19 +18,20 @@ int main(){
 void iniciaMat(float mat[][4]){
     for(int i=0;i<4;i++)
         for(int j=0;j<4;j++)
-            mat[i][j]=1;
+            mat[i][j]=0;
 }
 void muestraMat(float mat[][4]){
     for(int i=0;i<4;i++){
-        for(int j=0;j<4;j++)
-            printf("%f\t",mat[i][j]);
-        printf("\n");
+        for(int j=0;j<4;j++){
+            printf("|\t%f\t",mat[i][j]);
+        }    
+        printf("|\n-------------------------------------------------------------\n");
     }
 }
 void leeArchivo(char archFuente[],float mat[][4]){
     char ant[3];
     char act[3];
-    int fila,columna;
+    int fila,columna,suma;
     FILE* arch = fopen(archFuente,"rt"); 
     strcpy(ant,"\0");
     while(fgets(act,3,arch)!=NULL){
@@ -43,6 +44,16 @@ void leeArchivo(char archFuente[],float mat[][4]){
             strcpy(ant,act);
         }
     }
+    for(int i=0;i<4;i++){
+        suma=0;
+        for(int j=0;j<4;j++){
+            suma+=mat[i][j];
+        }if(suma!=0)
+            for(int j=0;j<4;j++){
+                mat[i][j]/=suma;
+        }
+    }
+
 
 }
 
