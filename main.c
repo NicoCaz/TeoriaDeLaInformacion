@@ -6,12 +6,11 @@ void leeArchivo(char archFuente[100],int tamanioPalabra){
     char palabra[tamanioPalabra];
     FILE* arch = fopen(archFuente,"rt");
     while(!feof(arch)){
-        fscanf(arch,"%c",palabra);
+        fscanf(arch,"%s",palabra);
     }
 }
 
 int main(int cantArgc, char *arg[]){
-
     return 0;
 }
 
