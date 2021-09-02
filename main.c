@@ -16,6 +16,8 @@ int anytoint(char *s, char **out);
 void cargalista(TLista *L, char dato[50]);
 void muestraLista(TLista L);
 void calculoCantInformacion(TLista L,int cant);
+void calculoCantEntropia(TLista L,int cant);
+
 float logbase(double a, double base);
 void clear();
 
@@ -24,8 +26,9 @@ int main(int cantArgc, char *arg[]){
 
     TLista L=NULL;
     int cant=0;
-    leeArchivo("anexo1.txt",5,&L,&cant);
+    leeArchivo("anexo1.txt",9,&L,&cant);
     calculoCantInformacion(L,cant);
+    calculoCantEntropia(L,cant);
     return 0;
 }
 
@@ -80,11 +83,22 @@ void calculoCantInformacion(TLista L,int cant){
     while(L!=NULL){
         printf("palabra: %s cant: %d  \n",L->palabra,L->catidad);
         prob=(L->catidad/(float)cant);
-        //printf("%f \n",prob);
-        //cantidadInfo=(float)logbase(prob,2);
         printf("la cantidad de informacion es de:%f \n",-logbase(prob,2));
         L=L->sig;
     }
+}
+
+void calculoCantEntropia(TLista L,int cant){
+    float prob;
+    float entropia=0;
+    while(L!=NULL){
+        prob=(L->catidad/(float)cant);
+        entropia+=(prob*(-logbase(prob,2)));
+        L=L->sig;
+    }
+    printf("\n\nEl logaritmo de %d es: %f  ",cant,logbase(cant,2));
+    printf("\n\nLa cantidad de entropia de la fuente es de: %f",entropia);
+
 }
 float logbase(double a, double base){
    return log(a) /log(base);
