@@ -26,6 +26,7 @@ int main(int cantArgc, char *arg[]){
 
     TLista L=NULL;
     int cant=0;
+   
     leeArchivo("anexo1.txt",9,&L,&cant);
     calculoCantInformacion(L,cant);
     calculoCantEntropia(L,cant);
@@ -36,7 +37,7 @@ int main(int cantArgc, char *arg[]){
 void leeArchivo(char archFuente[],int tamanioPalabra,TLista *L,int *cant){
     char palabra[tamanioPalabra+1];
     FILE* arch = fopen(archFuente,"rt");
-    while(fgets(palabra,tamanioPalabra,arch)!=NULL){
+    while(fgets(palabra,tamanioPalabra+1,arch)!=NULL){
         cargalista(L,palabra);
         (*cant)++;
        // printf("%s \n",palabra);
@@ -125,12 +126,6 @@ float logbase(double a, double base){
 
 
 
-
-
-
-
-
-
 void muestraLista(TLista L){
     while(L!=NULL){
         printf("palabra: %s cant: %d  \n",L->palabra,L->catidad);
@@ -160,3 +155,19 @@ void clear(){
         system("cls");
     #endif
 }
+
+
+void contarChar(char arch1[]){
+    char c;
+    int cant=0;
+    FILE* arch = fopen(arch1,"rt");
+    fscanf(arch,"%c",&c);
+    while(!feof(arch)){
+        cant++;
+        fscanf(arch,"%c",&c);
+    }
+    printf("%d",cant);
+}
+
+
+
