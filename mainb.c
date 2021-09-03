@@ -53,7 +53,10 @@ void leeArchivo(char archFuente[],float mat[][4]){
                 mat[i][j]/=suma;
         }
     }
-
+}
+void vectorEstacionario(float mat[][4],float matVec[][4]){
+    for(int i=0;i<4;i++){
+        mat[i][i]-=1;      //Resto matriz Identidad
+    }
 
 }
-
