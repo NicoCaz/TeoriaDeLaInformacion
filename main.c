@@ -6,13 +6,15 @@
 typedef struct datos{
     char palabra[20];
     int repeticiones;
+    float cantInformacion;
+    float entropia;
 }datos;
 
 void leeArchivo(char archFuente[],int tamanioPalabra,datos vec[],int *cant);
 void calculoCantInformacion(datos vec[],int cant,int tamanio);
 void calculoCantEntropia(datos vec[],int cant,int tamanio);
 void muestravec(datos vec[],int x);
-void inicializavec(datos vec[]);
+void inicializavec(datos vec[],int cant);
 float logbase(double a, double base);
 
 
@@ -20,11 +22,11 @@ int main(int cantArgc, char *arg[]){
     int cant=0;
     datos vec[512]; //el caso maximo
     int tamanio=9;
-    inicializavec(vec);
+    inicializavec(vec,tamanio);
     leeArchivo("anexo1.txt",tamanio,vec,&cant);
-    //muestravec(vec,pow(2,tamanio));
     calculoCantInformacion(vec,cant,tamanio);
-     calculoCantEntropia(vec,cant,tamanio);
+    calculoCantEntropia(vec,cant,tamanio);
+    muestravec(vec,pow(2,tamanio));
     return 0;
 }
 
@@ -48,12 +50,13 @@ void calculoCantInformacion(datos vec[],int cant,int tamanio){
     int i=0;
     for(int i=0;i<pow(2,tamanio);i++){
         if(vec[i].repeticiones!=0){
-            printf("palabra: %s cant: %d  palabra nro: %d \n",vec[i].palabra,vec[i].repeticiones,i);
+            //printf("palabra: %s cant: %d  palabra nro: %d \n",vec[i].palabra,vec[i].repeticiones,i);
             prob=(vec[i].repeticiones/(float)cant);
-            printf("la cantidad de informacion es de:%f bits\n",-logbase(prob,2));
+            vec[i].cantInformacion=(float)-logbase(prob,2);
         }else{
-            printf("La palabra numero %d nunca aparece!! \n ",i);
-            printf("la cantidad de informacion es de: 0 bits\n");
+            //printf("La palabra numero %d nunca aparece!! \n ",i);
+            //printf("la cantidad de informacion es de: 0 bits\n");
+            i=i;
         }
     }   
 }
@@ -64,6 +67,7 @@ void calculoCantEntropia(datos vec[],int cant,int tamanio){
     for(int i=0;i<pow(2,tamanio);i++){
         if(vec[i].repeticiones!=0){ 
             prob=(vec[i].repeticiones/(float)cant);
+            vec[i].entropia=(prob*(-logbase(prob,2)));
             entropia+=(prob*(-logbase(prob,2)));
             }
     }
@@ -77,17 +81,24 @@ float logbase(double a, double base){
 }
 
 void muestravec(datos vec[],int n){
+    FILE * arch=fopen("salida.txt","wt");
     for(int i=0;i<n;i++){
-        if(vec[i].repeticiones!=0)
-            printf("%d %s %d \n",i,vec[i].palabra,vec[i].repeticiones);
-        else{
+        fprintf(arch,"%s %d %f %f\n",vec[i].palabra,vec[i].repeticiones,vec[i].cantInformacion,vec[i].entropia);
+       /* if(vec[i].repeticiones!=0){
+            printf("palabra: %s cantidad de veces: %d \n",vec[i].palabra,vec[i].repeticiones);
+            printf("cantidad info: %f cantidad de entropia: %f \n",vec[i].cantInformacion,vec[i].entropia);
+        }else{
             printf("EL caracter numero %d no ha aparecido nunca \n",i);
-        }
+        }*/
     }
+    fclose(arch);
 }
-void inicializavec(datos vec[]){
-    for(int i=0;i<600;i++){
+void inicializavec(datos vec[],int tamanio){
+    int cant=pow(2,tamanio);
+    for(int i=0;i<cant;i++){
         vec[i].repeticiones=0;
+        vec[i].cantInformacion=(float)0;
+        vec[i].entropia=(float)0;
     }
 }
 
