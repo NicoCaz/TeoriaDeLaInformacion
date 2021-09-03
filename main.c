@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include <math.h>
 
 typedef struct datos{
@@ -16,7 +17,8 @@ void calculoCantEntropia(datos vec[],int cant,int tamanio);
 void muestravec(datos vec[],int x);
 void inicializavec(datos vec[],int cant);
 float logbase(double a, double base);
-
+char *intABin(int numero);
+char *concatena(char *palabra,char c);
 
 int main(int cantArgc, char *arg[]){
     int cant=0;
@@ -81,9 +83,12 @@ float logbase(double a, double base){
 }
 
 void muestravec(datos vec[],int n){
-    FILE * arch=fopen("salida.txt","wt");
+    FILE * arch=fopen("graficadora/salida.txt","wt");
     for(int i=0;i<n;i++){
-        fprintf(arch,"%s %d %f %f\n",vec[i].palabra,vec[i].repeticiones,vec[i].cantInformacion,vec[i].entropia);
+        if(vec[i].repeticiones!=0)
+            fprintf(arch,"%s %d %f %f\n",vec[i].palabra,vec[i].repeticiones,vec[i].cantInformacion,vec[i].entropia);
+        else
+            fprintf(arch,"%s %d %f %f\n",intABin(i),vec[i].repeticiones,vec[i].cantInformacion,vec[i].entropia);
        /* if(vec[i].repeticiones!=0){
             printf("palabra: %s cantidad de veces: %d \n",vec[i].palabra,vec[i].repeticiones);
             printf("cantidad info: %f cantidad de entropia: %f \n",vec[i].cantInformacion,vec[i].entropia);
@@ -102,3 +107,31 @@ void inicializavec(datos vec[],int tamanio){
     }
 }
 
+
+char *intABin(int numero){
+    char *binario="";
+    char c;
+    if(numero>0){
+        while(numero>0){
+            if(numero%2==0){
+                binario=concatena(binario,'0');
+            }else{
+                binario=concatena(binario,'1');
+            }
+            numero=(int)numero/2;
+        }
+    }
+    return binario;
+}
+
+char *concatena(char *palabra,char c){
+    char *binario;
+    int i;
+    binario= (char*)malloc(strlen(palabra)+2);
+    binario[0]=c;
+    for(i=1;palabra[i-1]!='\0';i++){
+        binario[i]=palabra[i-1];
+    }
+    binario[i++]='\0';
+    return binario;
+}
