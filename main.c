@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <unistd.h>
 #include <math.h>
 
 typedef struct datos{
@@ -23,12 +23,17 @@ char *concatena(char *palabra,char c);
 int main(int cantArgc, char *arg[]){
     int cant=0;
     datos vec[512]; //el caso maximo
-    int tamanio=9;
+    int tamanio=2;
     inicializavec(vec,tamanio);
-    leeArchivo("anexo1.txt",tamanio,vec,&cant);
+    leeArchivo("anexo1-grupo2.txt",tamanio,vec,&cant);
     calculoCantInformacion(vec,cant,tamanio);
     calculoCantEntropia(vec,cant,tamanio);
     muestravec(vec,pow(2,tamanio));
+    /*system("cd graficadora\\env\\Scripts\\activate.ps1");
+
+    system("graficadora/env/Scripts/python.exe graficadora/main.py");
+    */
+    
     return 0;
 }
 

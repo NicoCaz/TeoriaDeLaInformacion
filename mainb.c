@@ -10,8 +10,9 @@ void muestraMat(float mat[][4]);
 int main(){
     float mat[4][4];
     iniciaMat(mat);
-    leeArchivo("anexo1.txt",mat);
+    leeArchivo("anexo1-grupo2.txt",mat);
     muestraMat(mat);
+    system("main.exe");
     return 0;    
 }
 
