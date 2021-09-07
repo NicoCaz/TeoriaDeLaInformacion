@@ -1,10 +1,17 @@
 
 from io import open
-import matplotlib.pyplot as plt
+import pylab as pl
 
 
 arch=open("graficadora/salida.txt","r")
-fig, ax = plt.subplots()
+def trunca(num, n):
+    trun=1
+    for i in range(n):
+        trun*=10
+    aux=float(num)*trun
+    aux=int(aux)
+    return float(aux/trun)
+
 texto=arch.readlines()
 simbolos=[]
 cantidad=[]
@@ -14,12 +21,24 @@ numero=0
 for linea in texto:
     linea=linea.split()
     simbolos.append(numero)
-    cantidad.append(linea[1])
-    informacion.append(linea[2])
-    entropia.append(linea[3])
+    cantidad.append(int(linea[1]))
+    informacion.append(trunca(linea[2],6))
+    entropia.append(trunca(linea[3],6))
     numero=numero+1
 
-ax.set_ylabel('Cantidad')
-ax.set_xlabel('simbolo')
-plt.bar(simbolos,cantidad)
-plt.show()
+
+pl.subplot(2, 2, 1)
+pl.ylabel("n° Apareciones")
+pl.bar(simbolos,cantidad)
+
+pl.subplot(2, 2, 2)
+pl.xlabel("Palabra")
+pl.ylabel("Informacion")
+pl.bar(simbolos,informacion)
+
+pl.subplot(2, 2, 3)
+pl.xlabel("Palabra")
+pl.ylabel("Entropia")
+pl.bar(simbolos,entropia)
+
+pl.show()

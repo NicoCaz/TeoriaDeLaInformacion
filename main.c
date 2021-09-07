@@ -23,9 +23,9 @@ char *concatena(char *palabra,char c);
 int main(int cantArgc, char *arg[]){
     int cant=0;
     datos vec[512]; //el caso maximo
-    int tamanio=2;
+    int tamanio=5;
     inicializavec(vec,tamanio);
-    leeArchivo("anexo1-grupo2.txt",tamanio,vec,&cant);
+    leeArchivo("anexo1.txt",tamanio,vec,&cant);
     calculoCantInformacion(vec,cant,tamanio);
     calculoCantEntropia(vec,cant,tamanio);
     muestravec(vec,pow(2,tamanio));
