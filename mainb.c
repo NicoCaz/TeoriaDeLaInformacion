@@ -23,10 +23,9 @@ void iniciaMat(float mat[][4]){
 void muestraMat(float mat[][4]){
     for(int i=0;i<4;i++){
         for(int j=0;j<4;j++){
-            printf("|\t%f\t",mat[j][i]);
+            printf("|\t%f\t",mat[i][j]);
         }   
-        printf("\n"); 
-       // printf("|\n-------------------------------------------------------------\n");
+        printf("|\n-------------------------------------------------------------\n");
     }
 }
 void leeArchivo(char archFuente[],float mat[][4]){
@@ -39,8 +38,8 @@ void leeArchivo(char archFuente[],float mat[][4]){
         if(strcmp(ant,"\0")==0){
             strcpy(ant,act);
         }else{
-            fila=strtoul(ant,NULL ,2);
-            columna=strtoul(act,NULL ,2);
+            columna=strtoul(ant,NULL ,2);
+            fila=strtoul(act,NULL ,2);
             mat[fila][columna]+=1;
             strcpy(ant,act);
         }
