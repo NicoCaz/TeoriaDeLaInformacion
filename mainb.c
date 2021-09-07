@@ -6,12 +6,14 @@
 void leeArchivo(char archFuente[],float mat[][4]);
 void iniciaMat(float mat[][4]);
 void muestraMat(float mat[][4]);
+void vectorEstacionario(float mat[][4]);
 
 int main(){
     float mat[4][4];
     iniciaMat(mat);
     leeArchivo("anexo1.txt",mat);
     muestraMat(mat);
+    vectorEstacionario(mat);
     return 0;    
 }
 
@@ -54,9 +56,11 @@ void leeArchivo(char archFuente[],float mat[][4]){
         }
     }
 }
-void vectorEstacionario(float mat[][4],float matVec[][4]){
+void vectorEstacionario(float mat[][4]){
+     FILE * arch=fopen("graficadora/matriz.txt","wt");
     for(int i=0;i<4;i++){
-        mat[i][i]-=1;      //Resto matriz Identidad
-    }
-
+        fprintf(arch,"%f %f %f %f\n",mat[0][i],mat[1][i],mat[2][i],mat[3][i]);
+       }
+    fclose(arch);
 }
+

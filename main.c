@@ -29,14 +29,8 @@ int main(int cantArgc, char *arg[]){
     calculoCantInformacion(vec,cant,tamanio);
     calculoCantEntropia(vec,cant,tamanio);
     muestravec(vec,pow(2,tamanio));
-    /*system("cd graficadora\\env\\Scripts\\activate.ps1");
-
-    system("graficadora/env/Scripts/python.exe graficadora/main.py");
-    */
-    
     return 0;
 }
-
 
 void leeArchivo(char archFuente[],int tamanioPalabra,datos vec[],int *cant){
     char palabra[tamanioPalabra+1];
@@ -50,20 +44,14 @@ void leeArchivo(char archFuente[],int tamanioPalabra,datos vec[],int *cant){
     }
 }
 
-
 void calculoCantInformacion(datos vec[],int cant,int tamanio){
     float cantidadInfo;
     float prob;
     int i=0;
     for(int i=0;i<pow(2,tamanio);i++){
         if(vec[i].repeticiones!=0){
-            //printf("palabra: %s cant: %d  palabra nro: %d \n",vec[i].palabra,vec[i].repeticiones,i);
             prob=(vec[i].repeticiones/(float)cant);
             vec[i].cantInformacion=(float)-logbase(prob,2);
-        }else{
-            //printf("La palabra numero %d nunca aparece!! \n ",i);
-            //printf("la cantidad de informacion es de: 0 bits\n");
-            i=i;
         }
     }   
 }
@@ -94,12 +82,6 @@ void muestravec(datos vec[],int n){
             fprintf(arch,"%s %d %f %f\n",vec[i].palabra,vec[i].repeticiones,vec[i].cantInformacion,vec[i].entropia);
         else
             fprintf(arch,"%s %d %f %f\n",intABin(i),vec[i].repeticiones,vec[i].cantInformacion,vec[i].entropia);
-       /* if(vec[i].repeticiones!=0){
-            printf("palabra: %s cantidad de veces: %d \n",vec[i].palabra,vec[i].repeticiones);
-            printf("cantidad info: %f cantidad de entropia: %f \n",vec[i].cantInformacion,vec[i].entropia);
-        }else{
-            printf("EL caracter numero %d no ha aparecido nunca \n",i);
-        }*/
     }
     fclose(arch);
 }
@@ -111,7 +93,6 @@ void inicializavec(datos vec[],int tamanio){
         vec[i].entropia=(float)0;
     }
 }
-
 
 char *intABin(int numero){
     char *binario="";
@@ -128,7 +109,6 @@ char *intABin(int numero){
     }
     return binario;
 }
-
 char *concatena(char *palabra,char c){
     char *binario;
     int i;
