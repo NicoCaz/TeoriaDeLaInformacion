@@ -10,9 +10,8 @@ void muestraMat(float mat[][4]);
 int main(){
     float mat[4][4];
     iniciaMat(mat);
-    leeArchivo("anexo1-grupo2.txt",mat);
+    leeArchivo("anexo1.txt",mat);
     muestraMat(mat);
-    system("main.exe");
     return 0;    
 }
 
@@ -24,9 +23,10 @@ void iniciaMat(float mat[][4]){
 void muestraMat(float mat[][4]){
     for(int i=0;i<4;i++){
         for(int j=0;j<4;j++){
-            printf("|\t%f\t",mat[i][j]);
-        }    
-        printf("|\n-------------------------------------------------------------\n");
+            printf("|\t%f\t",mat[j][i]);
+        }   
+        printf("\n"); 
+       // printf("|\n-------------------------------------------------------------\n");
     }
 }
 void leeArchivo(char archFuente[],float mat[][4]){
