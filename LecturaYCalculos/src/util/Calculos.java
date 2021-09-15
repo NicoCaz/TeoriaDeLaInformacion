@@ -21,7 +21,23 @@ public abstract class Calculos {
 		
 	}
 	
+	public static void calculaMatriz(String ant,String act){
+		int mat[][] = null;
+		inicializaMat(mat);
+		int i,j;
+		i=Integer.parseInt(act,2);
+		j=Integer.parseInt(ant,2);
+		mat[i][j]+=1;
+		
+	}
 	
+	private static void inicializaMat(int mat[][]) {
+		for (int i=0; i < 4; i++) {
+			  for (int j=0; j < 4; j++) {
+			    mat[i][j]=0;
+			  }
+			}
+	}
 	
 	 private static Double logbase(double num, int base) {
 	      return (Math.log10(num) / Math.log10(base));

@@ -39,10 +39,11 @@ private int largopalabra;
 	   archivo = new File (ruta+"/anexo1.txt");
 	   fr = new FileReader (archivo);
 	   br = new BufferedReader(fr,this.largopalabra);
-	
+	   String ant=null;
 	   // Lectura del fichero
 	   String lineaStr,lineaBinaria;
 	   char[] linea=new char[5];
+	   
 	   while((br.read(linea,0,this.largopalabra))!=-1) { //mientras leo convierto y actualizo
 		lineaBinaria=String.valueOf(linea);
 		lineaStr=String.valueOf(linea);
@@ -50,7 +51,16 @@ private int largopalabra;
 		this.palabra[indice].palabra=lineaBinaria;
 		this.palabra[indice].repeticiones++;
 		
-		//ACA PODEMOS AGREGAR LO DE LA MATRIZ
+		//CALCULO DE LA MATRIZ
+		if(ant==null) {
+			ant=lineaBinaria;
+		}
+		else {
+			Calculos.calculaMatriz(ant, lineaBinaria);
+			ant=lineaBinaria;
+		}
+		
+		
 		
 		
 		cantidadPalabras++;
@@ -77,3 +87,4 @@ private int largopalabra;
 			System.out.println(this.palabra[i]);
 	}
 }
+
