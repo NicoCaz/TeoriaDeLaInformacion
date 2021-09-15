@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
+import util.Calculos;
+
 
 public class LeeArch {
 
@@ -13,14 +15,14 @@ private Palabra[] palabra;
 private File archivo = null;
 private FileReader fr = null;
 private BufferedReader br = null;
-private int largopalabra=5;
+private int largopalabra,cantidadPalabras;
 
 
 	public LeeArch(int largopalabra) {
 	super();
 	this.largopalabra=largopalabra;
 	this.palabra = new Palabra[(int) Math.pow(2,largopalabra)];
-	
+	this.cantidadPalabras=0;
 	//this.archivo = archivo;
 	}
 
@@ -46,16 +48,10 @@ private int largopalabra=5;
 	   while((br.read(linea,0,this.largopalabra))!=-1) {
 		lineaBinaria=String.valueOf(linea);
 		lineaStr=String.valueOf(linea);
-		
-		
 		int indice =Integer.parseInt(lineaStr,2);
-		
 		this.palabra[indice].palabra=lineaBinaria;
 		this.palabra[indice].repeticiones++;
-		//this.palabra[indice].cantInfo=123456;
-		
-		//System.out.println(indice+"  \n");
-		//System.out.println(lineaBinaria+"\n");
+		this.cantidadPalabras++;
 	   }
 	  
 	}
@@ -72,7 +68,7 @@ private int largopalabra=5;
 	      e2.printStackTrace();
 	   }
 	}
-	
+	Calculos.calculoCantInfoYEntropia(this.palabra,this.cantidadPalabras,this.largopalabra);
 	}
 	public void muestravec() {
 		for(int i=0;i<(int) Math.pow(2,largopalabra);i++)
