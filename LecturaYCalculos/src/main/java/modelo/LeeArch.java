@@ -72,7 +72,7 @@ private int largopalabra;
 	      e2.printStackTrace();
 	   }
 	}
-	Calculos.calculoCantInfoYEntropia(this.palabra,this.cantidadPalabras,this.largopalabra);
+	Calculos.calculoCantInfoYEntropia(this.palabra,cantidadPalabras,this.largopalabra);
 	}
 	public void muestravec() {
 		for(int i=0;i<(int) Math.pow(2,largopalabra);i++)
