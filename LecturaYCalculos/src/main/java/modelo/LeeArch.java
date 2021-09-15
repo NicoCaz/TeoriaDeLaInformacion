@@ -15,14 +15,13 @@ private Palabra[] palabra;
 private File archivo = null;
 private FileReader fr = null;
 private BufferedReader br = null;
-private int largopalabra,cantidadPalabras;
+private int largopalabra;
 
 
 	public LeeArch(int largopalabra) {
 	super();
 	this.largopalabra=largopalabra;
 	this.palabra = new Palabra[(int) Math.pow(2,largopalabra)];
-	this.cantidadPalabras=0;
 	//this.archivo = archivo;
 	}
 
@@ -33,10 +32,11 @@ private int largopalabra,cantidadPalabras;
 	
 	public void leerarch() {
 	crearvec();
+	int cantidadPalabras=0;
 	try {
 	   // Apertura del fichero y creacion de BufferedReader para poder
 	   // hacer una lectura comoda (disponer del metodo readLine()).
-		String ruta;
+	   String ruta;
 	   ruta=System.getProperty("user.dir");
 	   archivo = new File (ruta+"/anexo1.txt");
 	   fr = new FileReader (archivo);
@@ -45,13 +45,17 @@ private int largopalabra,cantidadPalabras;
 	   // Lectura del fichero
 	   String lineaStr,lineaBinaria;
 	   char[] linea=new char[5];
-	   while((br.read(linea,0,this.largopalabra))!=-1) {
+	   while((br.read(linea,0,this.largopalabra))!=-1) { //mientras leo convierto y actualizo
 		lineaBinaria=String.valueOf(linea);
 		lineaStr=String.valueOf(linea);
 		int indice =Integer.parseInt(lineaStr,2);
 		this.palabra[indice].palabra=lineaBinaria;
 		this.palabra[indice].repeticiones++;
-		this.cantidadPalabras++;
+		
+		//ACA PODEMOS AGREGAR LO DE LA MATRIZ
+		
+		
+		cantidadPalabras++;
 	   }
 	  
 	}
