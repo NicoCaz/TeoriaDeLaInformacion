@@ -16,14 +16,16 @@ private BufferedReader br = null;
 private int largopalabra=5;
 
 
-	public LeeArch() {
+	public LeeArch(int largopalabra) {
 	super();
-	this.palabra = new Palabra[512];
+	this.largopalabra=largopalabra;
+	this.palabra = new Palabra[(int) Math.pow(2,largopalabra)];
+	
 	//this.archivo = archivo;
 	}
 
 	private void crearvec() {
-		for(int i=0;i<512;i++)
+		for(int i=0;i<(int) Math.pow(2,largopalabra);i++)
 		this.palabra[i]=new Palabra();
 	}
 	
@@ -50,7 +52,7 @@ private int largopalabra=5;
 		
 		this.palabra[indice].palabra=lineaBinaria;
 		this.palabra[indice].repeticiones++;
-		this.palabra[indice].cantInfo=123456;
+		//this.palabra[indice].cantInfo=123456;
 		
 		//System.out.println(indice+"  \n");
 		//System.out.println(lineaBinaria+"\n");
@@ -73,7 +75,7 @@ private int largopalabra=5;
 	
 	}
 	public void muestravec() {
-		for(int i=0;i<512;i++)
+		for(int i=0;i<(int) Math.pow(2,largopalabra);i++)
 			System.out.println(this.palabra[i]);
 	}
 }
