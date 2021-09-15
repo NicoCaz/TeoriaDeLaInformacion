@@ -13,5 +13,11 @@ public Palabra() {
 	this.entropia = 0;
 }
 
+@Override
+public String toString() {
+	return "Palabra [palabra=" + palabra + ", repeticiones=" + repeticiones + ", cantInfo=" + cantInfo + ", entropia="
+			+ entropia + "]";
+}
+
 
 }

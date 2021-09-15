@@ -8,6 +8,7 @@ public class Prueba {
 		LeeArch lee=new LeeArch();
  
 		lee.leerarch();
+		lee.muestravec();
 	}
 
 }

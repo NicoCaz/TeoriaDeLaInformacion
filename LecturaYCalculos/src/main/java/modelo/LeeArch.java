@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class LeeArch {
 
-private Palabra palabra[];
+private Palabra[] palabra;
 private File archivo = null;
 private FileReader fr = null;
 private BufferedReader br = null;
@@ -18,13 +18,17 @@ private int largopalabra=5;
 
 	public LeeArch() {
 	super();
-	this.palabra = new Palabra[512];;
+	this.palabra = new Palabra[512];
 	//this.archivo = archivo;
 	}
 
-
-	public void leerarch() {
+	private void crearvec() {
+		for(int i=0;i<512;i++)
+		this.palabra[i]=new Palabra();
+	}
 	
+	public void leerarch() {
+	crearvec();
 	try {
 	   // Apertura del fichero y creacion de BufferedReader para poder
 	   // hacer una lectura comoda (disponer del metodo readLine()).
@@ -35,14 +39,21 @@ private int largopalabra=5;
 	   br = new BufferedReader(fr,this.largopalabra);
 	
 	   // Lectura del fichero
-	   String linea;
-	   while((linea=br.readLine())!=null) {
-		System.out.println("\n");
-		System.out.println(linea+"  \n");
-		int indice =Integer.parseInt(linea);
-		this.palabra[indice].palabra=linea;
+	   String lineaStr,lineaBinaria;
+	   char[] linea=new char[5];
+	   while((br.read(linea,0,this.largopalabra))!=-1) {
+		lineaBinaria=String.valueOf(linea);
+		lineaStr=String.valueOf(linea);
+		
+		
+		int indice =Integer.parseInt(lineaStr,2);
+		
+		this.palabra[indice].palabra=lineaBinaria;
 		this.palabra[indice].repeticiones++;
 		this.palabra[indice].cantInfo=123456;
+		
+		//System.out.println(indice+"  \n");
+		//System.out.println(lineaBinaria+"\n");
 	   }
 	  
 	}
@@ -61,19 +72,8 @@ private int largopalabra=5;
 	}
 	
 	}
-	/* public void leerarch()  {
-		String ruta=System.getProperty("user.dir");
-	        String fileName = ruta+"/anexo1.txt";
-	        Scanner scan = null;
-			try {
-				scan = new Scanner(new File(fileName));
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	        while(scan.hasNextLine()){
-	            String line = scan.nextLine();
-	            System.out.println(line+"\n");
-	        }
-	    }*/
+	public void muestravec() {
+		for(int i=0;i<512;i++)
+			System.out.println(this.palabra[i]);
+	}
 }
