@@ -6,8 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TeoriaDeLaInfoTP1" />
+        <module name="TP1_Grupo1_TeoInfo" />
+        <module name="LecturaYCalculos" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="LecturaYCalculos" target="15" />
+      <module name="TP1_Grupo1_TeoInfo" target="15" />
+    </bytecodeTargetLevel>
   </component>
 </project>
