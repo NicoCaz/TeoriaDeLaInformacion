@@ -42,7 +42,7 @@ private int largopalabra;
 	   String ant=null;
 	   // Lectura del fichero
 	   String lineaStr,lineaBinaria;
-	   char[] linea=new char[5];
+	   char[] linea=new char[this.largopalabra];
 	   
 	   while((br.read(linea,0,this.largopalabra))!=-1) { //mientras leo convierto y actualizo
 		lineaBinaria=String.valueOf(linea);
@@ -50,18 +50,6 @@ private int largopalabra;
 		int indice =Integer.parseInt(lineaStr,2);
 		this.palabra[indice].palabra=lineaBinaria;
 		this.palabra[indice].repeticiones++;
-		
-		//CALCULO DE LA MATRIZ
-		if(ant==null) {
-			ant=lineaBinaria;
-		}
-		else {
-			Calculos.calculaMatriz(ant, lineaBinaria);
-			ant=lineaBinaria;
-		}
-		
-		
-		
 		
 		cantidadPalabras++;
 	   }
