@@ -6,13 +6,13 @@ import modelo.MatrizDePasaje;
 public class Prueba {
 
 	public static void main(String[] args) {
-	/*	LeeArch lee=new LeeArch(5);
+		LeeArch lee=new LeeArch(7);
  
 		lee.leerarch();
-		lee.muestravec();*/
+		lee.muestravec();
 		
-		MatrizDePasaje m =new MatrizDePasaje();
-		m.crearMatriz();
+	/*	MatrizDePasaje m =new MatrizDePasaje();
+		m.crearMatriz();*/
 	}
 
 }

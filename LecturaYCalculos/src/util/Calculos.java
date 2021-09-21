@@ -1,11 +1,12 @@
 package util;
 
+import modelo.LeeArch;
 import modelo.Palabra;
 
 public abstract class Calculos {
 
 	
-	public static void calculoCantInfoYEntropia(Palabra[] palabra,int cantPal,int tamanioPal){
+	public static void calculoCantInfoYEntropia(Palabra[] palabra,int cantPal,int tamanioPal, float entropia){
 		
 		float prob;
 		int i;
@@ -14,7 +15,7 @@ public abstract class Calculos {
 				prob=(float)palabra[i].repeticiones/cantPal;
 				palabra[i].cantInfo=(float) -logbase(prob,2);
 				palabra[i].entropia=(float) (prob*(-logbase(prob,2)));
-				//entropia+=(float) (prob*(-logbase(prob,2)));
+				LeeArch.entropia+=(float) (prob*(-logbase(prob,2)));
 				
 			}
 		}

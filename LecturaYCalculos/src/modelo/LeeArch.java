@@ -14,6 +14,7 @@ private File archivo = null;
 private FileReader fr = null;
 private BufferedReader br = null;
 private int largopalabra;
+public static float entropia;
 
 
 	public LeeArch(int largopalabra) {
@@ -29,6 +30,7 @@ private int largopalabra;
 	}
 	
 	public void leerarch() {
+		this.entropia=0;
 	crearvec();
 	int cantidadPalabras=0;
 	try {
@@ -68,11 +70,13 @@ private int largopalabra;
 	      e2.printStackTrace();
 	   }
 	}
-	Calculos.calculoCantInfoYEntropia(this.palabra,cantidadPalabras,this.largopalabra);
+	Calculos.calculoCantInfoYEntropia(this.palabra,cantidadPalabras,this.largopalabra,LeeArch.entropia);
+	System.out.println("La entropia de la fuente es: "+LeeArch.entropia);
 	}
 	public void muestravec() {
 		for(int i=0;i<(int) Math.pow(2,largopalabra);i++)
 			System.out.println(this.palabra[i]);
 	}
+	
 }
 
