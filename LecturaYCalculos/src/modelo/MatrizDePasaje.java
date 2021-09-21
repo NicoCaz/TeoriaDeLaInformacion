@@ -11,31 +11,36 @@ public class MatrizDePasaje {
 	
 	
 	private int largopalabra;
-	
-	
+	private float[][] mat;
 
 	public MatrizDePasaje() {
 		super();
 		this.largopalabra = 2;
+		this.mat = new float[4][4];
 	}
 
-
+	public float[][] devuelveMat(){
+		return this.mat;
+	}
 
 	public void crearMatriz() {
+
 		int cantidadPalabras=0;
 		FileReader fr = null;
+		String lineaStr,ant=null;
+		char[] linea=new char[this.largopalabra];
+
+		String ruta;
 		try {
 		   // Apertura del fichero y creacion de BufferedReader para poder
 		   // hacer una lectura comoda (disponer del metodo readLine()).
-		   String ruta;
+
 		   ruta=System.getProperty("user.dir");
 		   File archivo = new File (ruta+"/anexo1.txt");
 		   fr = new FileReader (archivo);
 		   BufferedReader br = new BufferedReader(fr,this.largopalabra);
 		   // Lectura del fichero
-		   String lineaStr,ant=null;
-		   char[] linea=new char[this.largopalabra];
-		   float mat[][]= new float[4][4];
+
 		   
 		   while((br.read(linea,0,this.largopalabra))!=-1) { //mientras leo convierto y actualizo
 			
@@ -45,15 +50,14 @@ public class MatrizDePasaje {
 				ant=lineaStr;
 			}
 			else {
-				Calculos.calculaMatriz(ant,lineaStr,mat);
+				Calculos.calculaMatriz(ant,lineaStr,this.mat);
 				ant=lineaStr;
 			}
-			
-			
 			cantidadPalabras++;
 		   }
-		   Calculos.promMat(mat);
-		   Calculos.muestraMat(mat);
+
+		   Calculos.promMat(this.mat);
+		   Calculos.muestraMat(this.mat);
 		  
 		}
 		catch(Exception e){

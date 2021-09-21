@@ -11,8 +11,9 @@ public class Prueba {
 		lee.leerarch();
 		lee.muestravec();
 		
-	/*	MatrizDePasaje m =new MatrizDePasaje();
-		m.crearMatriz();*/
-	}
+		MatrizDePasaje m =new MatrizDePasaje();
+		m.crearMatriz();
+
+		}
 
 }
