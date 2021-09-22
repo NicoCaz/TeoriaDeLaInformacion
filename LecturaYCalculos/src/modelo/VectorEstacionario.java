@@ -6,68 +6,68 @@ import java.util.List;
 public class VectorEstacionario {
 
     public static void main(String[] args) {
-        Matrix mat = new Matrix(
+        Matriz mat = new Matriz(
                 Arrays.asList(-0.743243d, 0.249498d, 0.251405d,  0.257328d),
                 Arrays.asList(0.254254d, -0.741717d,  0.247062d, 0.25214d),
                 Arrays.asList(0.254254d,  0.247239d, -0.752683d,  0.245136d),
                 Arrays.asList(1d, 1d, 1d, 1d));
         List<Double> b = Arrays.asList(0d, 0d, 0d, 1d);
-        System.out.println("Solution = " + cramersRule(mat, b));
+        System.out.println("Solucion = " + reglaDeCramer(mat, b));
     }
 
-    private static List<Double> cramersRule(Matrix matrix, List<Double> b) {
-        double denominator = matrix.determinant();
+    private static List<Double> reglaDeCramer(Matriz matriz, List<Double> b) {
+        double denominator = matriz.determinante();
         List<Double> result = new ArrayList<>();
         for ( int i = 0 ; i < b.size() ; i++ ) {
-            result.add(matrix.replaceColumn(b, i).determinant() / denominator);
+            result.add(matriz.replaceColumn(b, i).determinante() / denominator);
         }
         return result;
     }
 
-    private static class Matrix {
+    private static class Matriz {
 
-        private List<List<Double>> matrix;
+        private List<List<Double>> matriz;
 
         @Override
         public String toString() {
-            return matrix.toString();
+            return matriz.toString();
         }
 
 
         @SafeVarargs
-        public Matrix(List<Double> ... lists) {
-            matrix = new ArrayList<>();
-            matrix.addAll(Arrays.asList(lists));
+        public Matriz(List<Double> ... lists) {
+            matriz = new ArrayList<>();
+            matriz.addAll(Arrays.asList(lists));
         }
 
-        public Matrix(List<List<Double>> mat) {
-            matrix = mat;
+        public Matriz(List<List<Double>> mat) {
+            matriz = mat;
         }
 
-        public double determinant() {
-            if ( matrix.size() == 1 ) {
-                return get(0, 0);
-            }
-            if ( matrix.size() == 2 ) {
-                return get(0, 0) * get(1, 1) - get(0, 1) * get(1, 0);
-            }
+        public double determinante() {
             double sum = 0;
             double sign = 1;
-            for ( int i = 0 ; i < matrix.size() ; i++ ) {
-                sum += sign * get(0, i) * coFactor(0, i).determinant();
+            if ( matriz.size() == 1 ) {
+                return get(0, 0);
+            }
+            if ( matriz.size() == 2 ) {
+                return get(0, 0) * get(1, 1) - get(0, 1) * get(1, 0);
+            }
+            for ( int i = 0 ; i < matriz.size() ; i++ ) {
+                sum += sign * get(0, i) * coFactor(0, i).determinante();
                 sign *= -1;
             }
             return sum;
         }
 
-        private Matrix coFactor(int row, int col) {
+        private Matriz coFactor(int fila, int columna) {
             List<List<Double>> mat = new ArrayList<>();
-            for ( int i = 0 ; i < matrix.size() ; i++ ) {
-                if ( i != row ) {
+            for ( int i = 0 ; i < matriz.size() ; i++ ) {
+                if ( i != fila ) {
 
                 List<Double> list = new ArrayList<>();
-                for ( int j = 0 ; j < matrix.size() ; j++ ) {
-                    if ( j != col ) {
+                for ( int j = 0 ; j < matriz.size() ; j++ ) {
+                    if ( j != columna ) {
 
                     list.add(get(i, j));
                     }
@@ -76,14 +76,14 @@ public class VectorEstacionario {
                 }
             }
 
-            return new Matrix(mat);
+            return new Matriz(mat);
         }
 
-        private Matrix replaceColumn(List<Double> b, int column) {
+        private Matriz replaceColumn(List<Double> b, int column) {
             List<List<Double>> mat = new ArrayList<>();
-            for ( int row = 0 ; row < matrix.size() ; row++ ) {
+            for ( int row = 0 ; row < matriz.size() ; row++ ) {
                 List<Double> list = new ArrayList<>();
-                for ( int col = 0 ; col < matrix.size() ; col++ ) {
+                for ( int col = 0 ; col < matriz.size() ; col++ ) {
                     double value = get(row, col);
                     if ( col == column ) {
                         value = b.get(row);
@@ -92,11 +92,11 @@ public class VectorEstacionario {
                 }
                 mat.add(list);
             }
-            return new Matrix(mat);
+            return new Matriz(mat);
         }
 
         private double get(int row, int col) {
-            return matrix.get(row).get(col);
+            return matriz.get(row).get(col);
         }
 
     }
