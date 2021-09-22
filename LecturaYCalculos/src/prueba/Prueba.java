@@ -2,6 +2,9 @@ package prueba;
 
 import modelo.LeeArch;
 import modelo.MatrizDePasaje;
+import modelo.VectorEstacionario;
+
+import java.util.Arrays;
 
 public class Prueba {
 
@@ -13,6 +16,9 @@ public class Prueba {
 		
 		MatrizDePasaje m =new MatrizDePasaje();
 		m.crearMatriz();
+		VectorEstacionario.Matriz mat2=new VectorEstacionario.Matriz(m.devuelveMat());
+
+		System.out.println(VectorEstacionario.reglaDeCramer(mat2, Arrays.asList(0d, 0d, 0d, 1d)));
 
 		}
 

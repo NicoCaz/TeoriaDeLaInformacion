@@ -14,7 +14,7 @@ private File archivo = null;
 private FileReader fr = null;
 private BufferedReader br = null;
 private int largopalabra;
-public static float entropia;
+public static Double entropia;
 
 
 	public LeeArch(int largopalabra) {
@@ -30,7 +30,7 @@ public static float entropia;
 	}
 	
 	public void leerarch() {
-		this.entropia=0;
+		this.entropia= (double) 0;
 	crearvec();
 	int cantidadPalabras=0;
 	try {

@@ -11,15 +11,16 @@ public class MatrizDePasaje {
 	
 	
 	private int largopalabra;
-	private float[][] mat;
+	private Double[][] mat;
 
 	public MatrizDePasaje() {
 		super();
 		this.largopalabra = 2;
-		this.mat = new float[4][4];
+		this.mat = new Double[4][4];
+		Calculos.inicializaMat(this.mat);
 	}
 
-	public float[][] devuelveMat(){
+	public Double[][] devuelveMat(){
 		return this.mat;
 	}
 
