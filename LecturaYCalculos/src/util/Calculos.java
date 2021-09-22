@@ -6,15 +6,15 @@ import modelo.Palabra;
 public abstract class Calculos {
 
 
-	public static void calculoCantInfoYEntropia(Palabra[] palabra,int cantPal,int tamanioPal, Double entropia){
+	public static void calculoCantInfoYEntropia(Palabra[] palabra,int cantPal,int tamanioPal){
 
-		Double prob;
+		double prob;
 		int i;
+		System.out.println("La cantidad de palabras es de: "+cantPal);
 		for(i=0;i<Math.pow(2,tamanioPal);i++) {
 			if(palabra[i].repeticiones!=0) {
-				prob= (double) (palabra[i].repeticiones / cantPal);
+				prob= palabra[i].repeticiones / (cantPal+0.0);
 				palabra[i].cantInfo=-logbase(prob,2);
-				palabra[i].entropia= prob*(-logbase(prob,2));
 				LeeArch.entropia+= prob*(-logbase(prob,2));
 				
 			}
@@ -23,9 +23,6 @@ public abstract class Calculos {
 	}
 	
 	public static void calculaMatriz(String ant, String act, Double[][] mat){
-		//int mat[][] = null;
-		//inicializaMat(mat);
-		
 		int i=Integer.parseInt(act,2);
 		int j=Integer.parseInt(ant,2);
 		mat[i][j]+=1.0;

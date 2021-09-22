@@ -33,20 +33,17 @@ public class MatrizDePasaje {
 
 		String ruta;
 		try {
-		   // Apertura del fichero y creacion de BufferedReader para poder
-		   // hacer una lectura comoda (disponer del metodo readLine()).
-
 		   ruta=System.getProperty("user.dir");
 		   File archivo = new File (ruta+"/anexo1.txt");
 		   fr = new FileReader (archivo);
 		   BufferedReader br = new BufferedReader(fr,this.largopalabra);
-		   // Lectura del fichero
+
 
 		   
 		   while((br.read(linea,0,this.largopalabra))!=-1) { //mientras leo convierto y actualizo
 			
 			 lineaStr=String.valueOf(linea);
-			//CALCULO DE LA MATRIZ
+
 			if(ant==null) {
 				ant=lineaStr;
 			}
@@ -64,9 +61,6 @@ public class MatrizDePasaje {
 		catch(Exception e){
 		   e.printStackTrace();
 		}finally{
-		   // En el finally cerramos el fichero, para asegurarnos
-		   // que se cierra tanto si todo va bien como si salta 
-		   // una excepcion.
 		   try{                    
 		      if( null != fr )  
 		         fr.close();                       
