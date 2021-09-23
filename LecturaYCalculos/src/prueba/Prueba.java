@@ -16,10 +16,8 @@ public class Prueba {
 		
 		MatrizDePasaje m =new MatrizDePasaje();
 		m.crearMatriz();
-		VectorEstacionario.Matriz mat2=new VectorEstacionario.Matriz(m.devuelveMat());
-
-		System.out.println(VectorEstacionario.reglaDeCramer(mat2, Arrays.asList(0d, 0d, 0d, 1d)));
-
+		VectorEstacionario vec=new VectorEstacionario();
+		System.out.println("Vector estacionario:"+vec.calculaVector(m.devuelveMat()));
 		}
 
 }

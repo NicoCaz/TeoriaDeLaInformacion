@@ -67,4 +67,18 @@ public static void muestraMat(Double[][] mat){
     }
 }
 
+	public static double calculoLongitudMedia(Palabra[] palabra,int cantPal,int tamanioPal){
+		double prob,kraft=0;
+
+		for(int i=0;i<Math.pow(2,tamanioPal);i++) {
+			if(palabra[i].repeticiones!=0) {
+				prob= palabra[i].repeticiones / (cantPal+0.0);
+				kraft+=prob*tamanioPal;
+			}
+		}
+		return kraft;
+
+	}
+
+
 }
