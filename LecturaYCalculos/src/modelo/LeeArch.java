@@ -13,13 +13,14 @@ public class LeeArch {
     private File archivo = null;
     private FileReader fr = null;
     private BufferedReader br = null;
-    private int largopalabra;
+    private int largopalabra,cantPal;
     public static Double entropia;
 
     public LeeArch(int largopalabra) {
         super();
         this.largopalabra = largopalabra;
         this.palabra = new Palabra[(int) Math.pow(2, largopalabra)];
+        this.cantPal=0;
     }
 
     private void crearvec() {
@@ -30,7 +31,7 @@ public class LeeArch {
     public void leerarch() {
         entropia = 0.0;
         crearvec();
-        int cantidadPalabras = 0;
+
         try {
             String ruta;
             ruta = System.getProperty("user.dir");
@@ -46,7 +47,7 @@ public class LeeArch {
                 int indice = Integer.parseInt(lineaStr, 2);
                 this.palabra[indice].palabra = lineaBinaria;
                 this.palabra[indice].repeticiones++;
-                cantidadPalabras++;
+                this.cantPal++;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,10 +59,15 @@ public class LeeArch {
                 e2.printStackTrace();
             }
         }
-        Calculos.calculoCantInfoYEntropia(this.palabra, cantidadPalabras, this.largopalabra);
+        Calculos.calculoCantInfoYEntropia(this.palabra, this.cantPal, this.largopalabra);
         System.out.println("La entropia de la fuente es: " + LeeArch.entropia);
     }
-
+    public void longmMedia() {
+        System.out.printf("long media:"+Calculos.calculoLongitudMedia(this.palabra,this.cantPal,this.largopalabra));
+    }
+    public void kraft(){
+        System.out.println(Calculos.kraft(this.palabra,this.largopalabra));
+    }
     public void muestravec() {
         for (int i = 0; i < (int) Math.pow(2, largopalabra); i++)
             System.out.println(this.palabra[i]);

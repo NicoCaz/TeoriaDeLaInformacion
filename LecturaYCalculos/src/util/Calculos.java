@@ -79,10 +79,10 @@ public static void muestraMat(Double[][] mat){
 		return lon;
 
 	}
-	public static double kraft(Palabra[] palabra,int cantPal,int tamanioPal,double lon) {
+	public static double kraft(Palabra[] palabra,int tamanioPal) {
 		double kraft=0;
 		for(int i=0;i<Math.pow(2,tamanioPal);i++){
-			kraft+=Math.pow(2,-5);
+			kraft+=Math.pow(2,-tamanioPal);
 		}
 		return kraft;
 	}
