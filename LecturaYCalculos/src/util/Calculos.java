@@ -86,5 +86,14 @@ public static void muestraMat(Double[][] mat){
 		}
 		return kraft;
 	}
-
+	public static double rendimiento(double entropia, double longMedia) {
+		return entropia/longMedia;
 	}
+	public static double redundancia(double entropia, double longMedia) {
+		return 1-entropia/longMedia;
+	}
+	}
+
+
+
+
