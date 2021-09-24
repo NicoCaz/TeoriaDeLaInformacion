@@ -10,13 +10,13 @@ public class ShannonFano {
 
     public ShannonFano(Palabra[] palabra){
         Arrays.sort(palabra);
-        ArrayList<Simbolo> lista=new ArrayList<Simbolo>();
+        ArrayList<Simbolo> simbolos=new ArrayList<Simbolo>();
         HashMap<String,String> tabla=new HashMap<String,String>();
         for(Palabra o:palabra){
-            lista.add(new Simbolo(o.palabra,o.repeticiones));
+            simbolos.add(new Simbolo(o.palabra,o.repeticiones));
             tabla.put(o.palabra,"");
         }
-
+        creoTabla(tabla,simbolos);
     }
     private void creoTabla(HashMap<String,String> tabla, List<Simbolo> simbolos){
         if(simbolos.size()>1){
@@ -25,17 +25,21 @@ public class ShannonFano {
                 suma+=s.getFrecuencia();
             }
             int mitad=0;
+            int sumaAux=0;
             for(Simbolo s :simbolos){
-                if(mitad<suma/2) {
+                if(sumaAux<suma/2) {
                     tabla.put(s.getSimbolo(), "1" + tabla.get(s.getSimbolo()));
                     mitad++;
+                    sumaAux+=s.getFrecuencia();
                 }else {
                     tabla.put(s.getSimbolo(), "0" + tabla.get(s.getSimbolo()));
                 }
             }
-            creoTabla(tabla,simbolos.subList(0,mitad+1));
+            creoTabla(tabla,simbolos.subList(0,mitad));
             creoTabla(tabla,simbolos.subList(mitad+1,simbolos.size()));
         }
+
     }
+
 
 }
