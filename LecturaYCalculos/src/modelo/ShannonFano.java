@@ -17,6 +17,7 @@ public class ShannonFano {
             tabla.put(o.palabra,"");
         }
         creoTabla(tabla,simbolos);
+        tabla.forEach((k,v) -> System.out.println("Key: " + k + ": Value: " + v));
     }
     private void creoTabla(HashMap<String,String> tabla, List<Simbolo> simbolos){
         if(simbolos.size()>1){
