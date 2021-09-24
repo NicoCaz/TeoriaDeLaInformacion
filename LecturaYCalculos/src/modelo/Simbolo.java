@@ -2,12 +2,19 @@ package modelo;
 
 
 public class Simbolo implements Comparable<Simbolo> {
-    private char c;
+    private String c;
     private double frecuencia;
 
-    Simbolo(char c, double freq) {
+    Simbolo(String c, double freq) {
         this.c = c;
         this.frecuencia = freq;
+    }
+
+    public double getFrecuencia(){
+        return this.frecuencia;
+    }
+    public String getSimbolo(){
+        return  this.c;
     }
 
     @Override

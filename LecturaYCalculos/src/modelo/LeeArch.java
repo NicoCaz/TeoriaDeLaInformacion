@@ -73,5 +73,11 @@ public class LeeArch {
             System.out.println(this.palabra[i]);
     }
 
+    public Palabra[] getPalabra() {
+        return palabra;
+
+    }
+
+
 }
 

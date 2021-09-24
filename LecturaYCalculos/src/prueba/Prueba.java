@@ -4,6 +4,7 @@ import modelo.LeeArch;
 import modelo.MatrizDePasaje;
 import modelo.VectorEstacionario;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Prueba {
@@ -25,6 +26,13 @@ public class Prueba {
 		lee.kraft();
 		System.out.println(	"Longitud media:");
 		lee.longmMedia();
+
+		/*
+		System.out.println("\n\n\n");
+		Arrays.sort(lee.getPalabra());
+		lee.muestravec();
+		*/
 		}
+
 
 }
