@@ -68,6 +68,12 @@ public class LeeArch {
     public void kraft(){
         System.out.println(Calculos.kraft(this.palabra,this.largopalabra));
     }
+    public void rendimiento() {
+    	System.out.println(Calculos.rendimiento(LeeArch.entropia, Calculos.calculoLongitudMedia(this.palabra,this.cantPal,this.largopalabra)));
+    }
+    public void redundancia() {
+    	System.out.println(Calculos.redundancia(LeeArch.entropia, Calculos.calculoLongitudMedia(this.palabra,this.cantPal,this.largopalabra)));
+    }
     public void muestravec() {
         for (int i = 0; i < (int) Math.pow(2, largopalabra); i++)
             System.out.println(this.palabra[i]);
