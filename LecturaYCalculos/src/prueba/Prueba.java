@@ -32,11 +32,11 @@ public class Prueba {
 		ShannonFano codificador=new ShannonFano(lee.getPalabra());
 
 
-		/*
+
 
 		Arrays.sort(lee.getPalabra());
 		lee.muestravec();
-		*/
+
 		}
 
 

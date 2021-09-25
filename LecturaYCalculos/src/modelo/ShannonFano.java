@@ -17,30 +17,46 @@ public class ShannonFano {
             tabla.put(o.palabra,"");
         }
         creoTabla(tabla,simbolos);
-        tabla.forEach((k,v) -> System.out.println("Key: " + k + ": Value: " + v));
+        for(Palabra o:palabra){
+            System.out.println(tabla.get(o.palabra));
+        }
+       // tabla.forEach((k,v) -> System.out.println("Key: " + k + ": Value: " + v));
     }
     private void creoTabla(HashMap<String,String> tabla, List<Simbolo> simbolos){
-        if(simbolos.size()>1){
-            int suma=0;
-            for(Simbolo s :simbolos){
-                suma+=s.getFrecuencia();
-            }
-            int mitad=0;
-            int sumaAux=0;
-            for(Simbolo s :simbolos){
-                if(sumaAux<suma/2) {
-                    tabla.put(s.getSimbolo(), "1" + tabla.get(s.getSimbolo()));
-                    mitad++;
-                    sumaAux+=s.getFrecuencia();
-                }else {
-                    tabla.put(s.getSimbolo(), "0" + tabla.get(s.getSimbolo()));
+
+            if (simbolos.size() > 0) {
+                int suma = 0;
+                for (Simbolo s : simbolos) {
+                    suma += s.getFrecuencia();
+                }
+                int mitad = 0;
+                int sumaAux = 0;
+                double aux = 0;
+                for (Simbolo s : simbolos) {
+                    if (sumaAux < suma / 2) {
+                        tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo() )+"0");
+                        aux = s.getFrecuencia();
+                        mitad++;
+                        sumaAux += s.getFrecuencia();
+                    } else {
+                            tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo())+"1");
+                    }
+                }if(mitad!=1) {
+                    creoTabla(tabla, simbolos.subList(0, mitad));
+                    creoTabla(tabla, simbolos.subList(mitad , simbolos.size()));
                 }
             }
-            creoTabla(tabla,simbolos.subList(0,mitad));
-            creoTabla(tabla,simbolos.subList(mitad+1,simbolos.size()));
         }
 
-    }
+
 
 
 }
+
+
+/*
+*  if (Math.abs((suma / 2) - sumaAux) < Math.abs((suma / 2) - (sumaAux - aux))) {
+                            tabla.put(s.getSimbolo(), "1" + tabla.get(s.getSimbolo()));
+                        }else {
+*
+* */
