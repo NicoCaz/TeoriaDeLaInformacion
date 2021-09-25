@@ -33,19 +33,25 @@ public class ShannonFano {
                 int mitad = 0;
                 int sumaAux = 0;
                 double aux;
+                String simbolo;
+                String acumula;
                 for (Simbolo s : simbolos) {
                     aux=s.getFrecuencia();
-                    if(sumaAux +aux <suma/2) {//Todavia no me paso
-                        tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo() )+"0");
+                    simbolo=s.getSimbolo();
+                    if(simbolo==null)
+                        simbolo="";
+                    acumula=tabla.get(simbolo);
+                    if(sumaAux +aux <=suma/2) {//Todavia no me paso
+                        tabla.put(simbolo,  acumula+"0");
                         mitad++;
                         sumaAux += aux;
                     }else{
                         if(Math.abs((suma / 2) - sumaAux) > Math.abs((suma / 2) - (sumaAux + aux))){//me fijo si me paso por mucho o por poco
-                            tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo() )+"0");
+                            tabla.put(simbolo, acumula+"0");
                             mitad++;
                             sumaAux += aux;
                         }else{
-                            tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo())+"1");
+                            tabla.put(simbolo, acumula+"1");
                         }
                     }
                 }

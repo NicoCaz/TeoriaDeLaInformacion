@@ -9,7 +9,7 @@ public class Prueba {
 
 	public static void main(String[] args) {
 		System.out.println(	"Parte 1 Ejercicio a):");
-		LeeArch lee=new LeeArch(9);
+		LeeArch lee=new LeeArch(7);
  
 		lee.leerarch();
 		lee.muestravec();
