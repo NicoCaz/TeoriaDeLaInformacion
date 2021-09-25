@@ -7,7 +7,7 @@ public Double cantInfo;
 
 public Palabra() {
 	super();
-	this.palabra = null;
+	this.palabra = "";
 	this.repeticiones = 0;
 	this.cantInfo =  0.0;
 
@@ -21,6 +21,8 @@ public String toString() {
 
 	@Override
 	public int compareTo(Palabra o) {
+		if(this.palabra==null)
+			return 1;
 		if(this.palabra.equals(o.palabra))
 			return 0;
 		if(this.repeticiones < o.repeticiones)

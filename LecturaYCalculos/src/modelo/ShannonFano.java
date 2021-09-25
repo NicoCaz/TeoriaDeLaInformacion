@@ -22,78 +22,43 @@ public class ShannonFano {
         }
 
     }
-    private void creoTabla1(HashMap<String,String> tabla, List<Simbolo> simbolos){
 
-            if (simbolos!= null && simbolos.size() > 0) {
+    private void creoTabla(HashMap<String,String> tabla, List<Simbolo> simbolos){
+
+            if (simbolos.size()>1) {
                 int suma = 0;
                 for (Simbolo s : simbolos) {
                     suma += s.getFrecuencia();
                 }
                 int mitad = 0;
                 int sumaAux = 0;
-                double aux = 0;
+                double aux;
                 for (Simbolo s : simbolos) {
-                    aux = s.getFrecuencia();
-                    if ((sumaAux +aux) < suma / 2) {
-                        tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo() )+"0");
-                        mitad++;
-                        sumaAux += s.getFrecuencia();
-                    } else {
-                            tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo())+"1");
-                    }
-                }
-                    List<Simbolo> superior;
-                    List<Simbolo> inferior;
-
-
-                    superior=simbolos.subList(0, mitad);
-                    creoTabla1(tabla, superior);
-                    inferior=simbolos.subList(mitad+1,simbolos.size());
-                    creoTabla1(tabla, inferior);
-
-
-
-            }
-        }
-
-
-
-    private void creoTabla(HashMap<String,String> tabla, List<Simbolo> simbolos){
-
-        if (simbolos.size()>1) {
-            int suma = 0;
-            for (Simbolo s : simbolos) {
-                suma += s.getFrecuencia();
-            }
-            int mitad = 0;
-            int sumaAux = 0;
-            double aux = 0;
-            for (Simbolo s : simbolos) {
-                aux=s.getFrecuencia();
-                if(sumaAux +aux <suma/2) {//Todavia no me paso
-                    tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo() )+"0");
-                    mitad++;
-                    sumaAux += aux;
-                }else{
-                    if(Math.abs((suma / 2) - sumaAux) > Math.abs((suma / 2) - (sumaAux + aux))){//me fijo si me paso por mucho o por poco
+                    aux=s.getFrecuencia();
+                    if(sumaAux +aux <suma/2) {//Todavia no me paso
                         tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo() )+"0");
                         mitad++;
                         sumaAux += aux;
                     }else{
-                        tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo())+"1");
+                        if(Math.abs((suma / 2) - sumaAux) > Math.abs((suma / 2) - (sumaAux + aux))){//me fijo si me paso por mucho o por poco
+                            tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo() )+"0");
+                            mitad++;
+                            sumaAux += aux;
+                        }else{
+                            tabla.put(s.getSimbolo(),  tabla.get(s.getSimbolo())+"1");
+                        }
                     }
                 }
+                List<Simbolo> superior;
+                List<Simbolo> inferior;
+                superior=simbolos.subList(0, mitad);
+                creoTabla(tabla, superior);
+                inferior=simbolos.subList(mitad,simbolos.size());
+                creoTabla(tabla, inferior);
+
+
+
             }
-            List<Simbolo> superior;
-            List<Simbolo> inferior;
-            superior=simbolos.subList(0, mitad);
-            creoTabla(tabla, superior);
-            inferior=simbolos.subList(mitad,simbolos.size());
-            creoTabla(tabla, inferior);
-
-
-
-        }
     }
 
 

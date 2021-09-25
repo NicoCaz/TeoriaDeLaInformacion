@@ -1,9 +1,6 @@
 package prueba;
 
-import modelo.LeeArch;
-import modelo.MatrizDePasaje;
-import modelo.ShannonFano;
-import modelo.VectorEstacionario;
+import modelo.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +9,7 @@ public class Prueba {
 
 	public static void main(String[] args) {
 		System.out.println(	"Parte 1 Ejercicio a):");
-		LeeArch lee=new LeeArch(5);
+		LeeArch lee=new LeeArch(9);
  
 		lee.leerarch();
 		lee.muestravec();
@@ -29,13 +26,14 @@ public class Prueba {
 		lee.longmMedia();
 
 		System.out.println("\n\n\n");
+
+
+		ShannonAfano afanado=new ShannonAfano(lee.getPalabra());
+		System.out.println("\n\n\n\n\n");
 		ShannonFano codificador=new ShannonFano(lee.getPalabra());
 
-
-
-
 		Arrays.sort(lee.getPalabra());
-		lee.muestravec();
+
 
 		}
 
