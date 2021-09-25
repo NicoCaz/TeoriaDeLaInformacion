@@ -4,25 +4,27 @@ import java.util.*;
 
 
 public class ShannonFano {
-
+    HashMap<String,String> tabla=new HashMap<String,String>();
     public ShannonFano(Palabra[] palabra){
         Arrays.sort(palabra);
         ArrayList<Simbolo> simbolos=new ArrayList<Simbolo>();
-        HashMap<String,String> tabla=new HashMap<String,String>();
         int indice=0;
         for(Palabra o:palabra){
-            if(Objects.equals(o.palabra, "")){
+          /* if(Objects.equals(o.palabra, "")){
                 simbolos.add(new Simbolo( String.valueOf(indice),o.repeticiones));
-            }
+            }*/
             simbolos.add(new Simbolo(o.palabra,o.repeticiones));
-            tabla.put(o.palabra,"");
+            this.tabla.put(o.palabra,"");
             indice++;
         }
-        creoTabla(tabla,simbolos);
+        creoTabla(this.tabla,simbolos);
         for(Palabra o:palabra){
-            System.out.println(tabla.get(o.palabra));
+            System.out.println(this.tabla.get(o.palabra));
         }
 
+    }
+    public HashMap<String,String> getTablaCodificada(){
+        return this.tabla;
     }
 
     private void creoTabla(HashMap<String,String> tabla, List<Simbolo> simbolos){

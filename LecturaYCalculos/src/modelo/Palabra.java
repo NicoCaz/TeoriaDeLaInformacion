@@ -8,7 +8,7 @@ public Double cantInfo;
 public Palabra() {
 	super();
 	this.palabra = "";
-	this.repeticiones = 0;
+	this.repeticiones =0;
 	this.cantInfo =  0.0;
 
 }

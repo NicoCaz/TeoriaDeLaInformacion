@@ -12,6 +12,8 @@ public class Prueba {
 		LeeArch lee=new LeeArch(9);
  
 		lee.leerarch();
+		//lee.muestravec();
+		Arrays.sort(lee.getPalabra());
 		lee.muestravec();
 		System.out.println(	"Parte 1 Ejercicio b):");
 		MatrizDePasaje m =new MatrizDePasaje();
@@ -28,12 +30,10 @@ public class Prueba {
 		System.out.println("\n\n\n");
 
 
-		//ShannonAfano afanado=new ShannonAfano(lee.getPalabra());
 		System.out.println("\n\n\n\n\n");
-		ShannonFano codificador=new ShannonFano(lee.getPalabra());
-
-		//Arrays.sort(lee.getPalabra());
-
+		ShannonFano shannonFano=new ShannonFano(lee.getPalabra());
+		CodificaArch codificador=new CodificaArch();
+		codificador.creaArch(shannonFano.getTablaCodificada(),9);
 
 		}
 
