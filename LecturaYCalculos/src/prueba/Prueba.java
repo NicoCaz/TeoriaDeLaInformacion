@@ -9,7 +9,7 @@ public class Prueba {
 
 	public static void main(String[] args) {
 		System.out.println(	"Parte 1 Ejercicio a):");
-		LeeArch lee=new LeeArch(7);
+		LeeArch lee=new LeeArch(9);
  
 		lee.leerarch();
 		lee.muestravec();
@@ -28,11 +28,11 @@ public class Prueba {
 		System.out.println("\n\n\n");
 
 
-		ShannonAfano afanado=new ShannonAfano(lee.getPalabra());
+		//ShannonAfano afanado=new ShannonAfano(lee.getPalabra());
 		System.out.println("\n\n\n\n\n");
 		ShannonFano codificador=new ShannonFano(lee.getPalabra());
 
-		Arrays.sort(lee.getPalabra());
+		//Arrays.sort(lee.getPalabra());
 
 
 		}

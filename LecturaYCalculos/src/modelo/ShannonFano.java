@@ -1,9 +1,6 @@
 package modelo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 public class ShannonFano {
@@ -12,9 +9,14 @@ public class ShannonFano {
         Arrays.sort(palabra);
         ArrayList<Simbolo> simbolos=new ArrayList<Simbolo>();
         HashMap<String,String> tabla=new HashMap<String,String>();
+        int indice=0;
         for(Palabra o:palabra){
+            if(Objects.equals(o.palabra, "")){
+                simbolos.add(new Simbolo( String.valueOf(indice),o.repeticiones));
+            }
             simbolos.add(new Simbolo(o.palabra,o.repeticiones));
             tabla.put(o.palabra,"");
+            indice++;
         }
         creoTabla(tabla,simbolos);
         for(Palabra o:palabra){
@@ -41,12 +43,12 @@ public class ShannonFano {
                     if(simbolo==null)
                         simbolo="";
                     acumula=tabla.get(simbolo);
-                    if(sumaAux +aux <=suma/2) {//Todavia no me paso
+                    if(sumaAux +aux <suma/2) {//Todavia no me paso
                         tabla.put(simbolo,  acumula+"0");
                         mitad++;
                         sumaAux += aux;
                     }else{
-                        if(Math.abs((suma / 2) - sumaAux) > Math.abs((suma / 2) - (sumaAux + aux))){//me fijo si me paso por mucho o por poco
+                        if(Math.abs((suma / 2) - sumaAux) >= Math.abs((suma / 2) - (sumaAux + aux)) && aux!=0    ){//me fijo si me paso por mucho o por poco
                             tabla.put(simbolo, acumula+"0");
                             mitad++;
                             sumaAux += aux;
@@ -54,14 +56,14 @@ public class ShannonFano {
                             tabla.put(simbolo, acumula+"1");
                         }
                     }
+                }if(mitad!=0) {
+                    List<Simbolo> superior;
+                    List<Simbolo> inferior;
+                    superior = simbolos.subList(0, mitad);
+                    creoTabla(tabla, superior);
+                    inferior = simbolos.subList(mitad, simbolos.size());
+                    creoTabla(tabla, inferior);
                 }
-                List<Simbolo> superior;
-                List<Simbolo> inferior;
-                superior=simbolos.subList(0, mitad);
-                creoTabla(tabla, superior);
-                inferior=simbolos.subList(mitad,simbolos.size());
-                creoTabla(tabla, inferior);
-
 
 
             }
