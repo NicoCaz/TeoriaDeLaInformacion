@@ -82,7 +82,7 @@ public static void muestraMat(Double[][] mat){
 	public static double kraft(Palabra[] palabra,int tamanioPal) {
 		double kraft=0;
 		for(int i=0;i<Math.pow(2,tamanioPal);i++){
-			kraft+=Math.pow(2,-tamanioPal);
+			kraft+=Math.pow(2,- palabra[i].palabra.length());
 		}
 		return kraft;
 	}

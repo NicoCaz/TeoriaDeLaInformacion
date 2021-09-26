@@ -24,8 +24,15 @@ public class LeeArch {
     }
 
     private void crearvec() {
-        for (int i = 0; i < (int) Math.pow(2, largopalabra); i++)
-            this.palabra[i] = new Palabra();
+    	String aux;
+        for (int i = 0; i < (int) Math.pow(2, largopalabra); i++) {
+        	aux=Integer.toString(i,2);
+        	if(aux.length()<largopalabra) {
+        		while(aux.length()<largopalabra)
+        			aux="0"+aux;
+        	}
+            this.palabra[i] = new Palabra(aux);
+        }
     }
 
     public void leerarch() {
@@ -38,14 +45,13 @@ public class LeeArch {
             archivo = new File(ruta + "/anexo1.txt");
             fr = new FileReader(archivo);
             br = new BufferedReader(fr, this.largopalabra);
-            String ant = null;
             String lineaStr, lineaBinaria;
             char[] linea = new char[this.largopalabra];
             while ((br.read(linea, 0, this.largopalabra)) != -1) { //mientras leo convierto y actualizo
-                lineaBinaria = String.valueOf(linea);
+             //   lineaBinaria = String.valueOf(linea);
                 lineaStr = String.valueOf(linea);
                 int indice = Integer.parseInt(lineaStr, 2);
-                this.palabra[indice].palabra = lineaBinaria;
+              //  this.palabra[indice].palabra = lineaBinaria;
                 this.palabra[indice].repeticiones++;
                 this.cantPal++;
             }
