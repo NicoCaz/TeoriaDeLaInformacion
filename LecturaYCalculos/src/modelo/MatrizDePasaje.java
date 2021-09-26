@@ -69,4 +69,14 @@ public class MatrizDePasaje {
 		   }
 		}
 		}
+	public void suma() {
+		double acum;
+		for(int i=0;i<4;i++) {
+			acum=0;
+			for(int j=0;j<4;j++) {
+				acum+=this.mat[i][j];
+			}
+			System.out.println("la suma es: "+acum);
+		}
+	}
 }
