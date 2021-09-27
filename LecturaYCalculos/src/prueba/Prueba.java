@@ -26,14 +26,15 @@ public class Prueba {
 		lee.kraft();
 		System.out.println(	"Longitud media:");
 		lee.longmMedia();
-
+		lee.rendimiento();
+		lee.redundancia();
 		System.out.println("\n\n\n");
 
-
+/*
 		System.out.println("\n\n\n\n\n");
 		ShannonFano shannonFano=new ShannonFano(lee.getPalabra());
 		CodificaArch codificador=new CodificaArch();
-		codificador.creaArch(shannonFano.getTablaCodificada(),9);
+		codificador.creaArch(shannonFano.getTablaCodificada(),9);*/
 
 		}
 
