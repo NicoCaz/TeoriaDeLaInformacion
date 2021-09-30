@@ -32,7 +32,7 @@ public class Prueba {
 		m.crearMatriz();
 		LeeArch leeB=new LeeArch(2);
 		leeB.leerarch();
-		//leeB.muestraEntropia();
+	
 		//tercer txt
 		System.out.println(	"Parte 1 Ejercicio c):");
 		VectorEstacionario vec=new VectorEstacionario();
