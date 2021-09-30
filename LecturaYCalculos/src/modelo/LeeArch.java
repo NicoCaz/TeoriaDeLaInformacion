@@ -84,7 +84,10 @@ public class LeeArch {
         for (int i = 0; i < (int) Math.pow(2, largopalabra); i++)
             System.out.println(this.palabra[i]);
     }
-
+    public void muestraEntropia()
+    {
+    	System.out.println("La entropia es: "+LeeArch.entropia+" bits");
+    }
     public Palabra[] getPalabra() {
         return palabra;
 
