@@ -80,10 +80,21 @@ public class Prueba {
 		System.setOut(archivoSalida);
 
 		System.out.println(	"Parte 2 Ejercicio b):");
+		System.out.println("Escenario 1");
 		System.out.println(	"Kraft");
 		lee.kraft();
 		System.out.println(	"Longitud media:");
 		lee.longmMedia();
+		System.out.println("Escenario 2");
+		lee2.kraft();
+		System.out.println(	"Longitud media:");
+		lee2.longmMedia();
+		System.out.println("Escenario 3");
+		lee3.kraft();
+		System.out.println(	"Longitud media:");
+		lee3.longmMedia();
+		
+		
 		try {
 			archivoSalida.close();
 		}catch(Exception e){
