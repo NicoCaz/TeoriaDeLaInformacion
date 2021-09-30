@@ -112,25 +112,21 @@ public class Prueba {
 			e.printStackTrace();
 		}
 		// los ultimos 3 txt
-		try {//cuarto txt
-			archivoSalida = new PrintStream(new FileOutputStream("resultados_segunda_parte_3.txt"));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		//cuarto txt
+
 		System.setOut(archivoSalida);
 		Arrays.sort(lee.getPalabra());
 		Arrays.sort(lee2.getPalabra());
 		Arrays.sort(lee3.getPalabra());
-		try {
-			archivoSalida.close();
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-/*
-		System.out.println("\n\n\n\n\n");
+
+
 		ShannonFano shannonFano=new ShannonFano(lee.getPalabra());
 		CodificaArch codificador=new CodificaArch();
-		codificador.creaArch(shannonFano.getTablaCodificada(),9);*/
+		codificador.creaArch(shannonFano.getTablaCodificada(),5);
+		shannonFano=new ShannonFano(lee2.getPalabra());
+		codificador.creaArch(shannonFano.getTablaCodificada(),7);
+		shannonFano=new ShannonFano(lee3.getPalabra());
+		codificador.creaArch(shannonFano.getTablaCodificada(),9);
 
 		}
 
