@@ -10,9 +10,7 @@ public class ShannonFano {
         ArrayList<Simbolo> simbolos=new ArrayList<Simbolo>();
         int indice=0;
         for(Palabra o:palabra){
-          /* if(Objects.equals(o.palabra, "")){
-                simbolos.add(new Simbolo( String.valueOf(indice),o.repeticiones));
-            }*/
+
             simbolos.add(new Simbolo(o.palabra,o.repeticiones));
             this.tabla.put(o.palabra,"");
             indice++;

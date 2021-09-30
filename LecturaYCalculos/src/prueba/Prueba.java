@@ -1,6 +1,7 @@
 package prueba;
 
 import modelo.*;
+import vista.Ventana;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,8 +9,9 @@ import java.util.Arrays;
 public class Prueba {
 
 	public static void main(String[] args) {
+		Ventana ventana =new Ventana();
 		System.out.println(	"Parte 1 Ejercicio a):");
-		LeeArch lee=new LeeArch(9);
+		LeeArch lee=new LeeArch(5);
  
 		lee.leerarch();
 		//lee.muestravec();
@@ -26,14 +28,12 @@ public class Prueba {
 		lee.kraft();
 		System.out.println(	"Longitud media:");
 		lee.longmMedia();
-
 		System.out.println("\n\n\n");
-
 
 		System.out.println("\n\n\n\n\n");
 		ShannonFano shannonFano=new ShannonFano(lee.getPalabra());
 		CodificaArch codificador=new CodificaArch();
-		codificador.creaArch(shannonFano.getTablaCodificada(),9);
+		codificador.creaArch(shannonFano.getTablaCodificada(),5);
 
 		}
 

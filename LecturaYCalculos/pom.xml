@@ -3,6 +3,15 @@
   <groupId>TP1_Grupo1_TeoInfo</groupId>
   <artifactId>TP1_Grupo1_TeoInfo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/com.jgoodies/jgoodies-forms -->
+    <dependency>
+      <groupId>com.jgoodies</groupId>
+      <artifactId>jgoodies-forms</artifactId>
+      <version>1.8.0</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
