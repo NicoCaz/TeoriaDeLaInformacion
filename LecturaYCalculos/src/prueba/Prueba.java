@@ -2,6 +2,9 @@ package prueba;
 
 import modelo.*;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,41 +12,90 @@ public class Prueba {
 
 	public static void main(String[] args) {
 		//primer txt
+		PrintStream archivoSalida = null;
+		try {
+			archivoSalida = new PrintStream(new FileOutputStream("resultados_primera_parte_1.txt"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		assert archivoSalida != null;
+		System.setOut(archivoSalida);
 		System.out.println(	"Parte 1 Ejercicio a):");
-		System.out.println("Escenario 1: Palabras código de 5 dígitos.");
+		System.out.println("Escenario 1: Palabras cï¿½digo de 5 dï¿½gitos.");
 		LeeArch lee=new LeeArch(5);
 		lee.leerarch();
 		lee.muestravec();
-		System.out.println("Escenario 1: Palabras código de 7 dígitos.");
+		System.out.println("Escenario 1: Palabras cï¿½digo de 7 dï¿½gitos.");
 		LeeArch lee2=new LeeArch(7);
 		lee2.leerarch();
 		lee2.muestravec();
-		System.out.println("Escenario 1: Palabras código de 9 dígitos.");
+		System.out.println("Escenario 1: Palabras cï¿½digo de 9 dï¿½gitos.");
 		LeeArch lee3=new LeeArch(9);
 		lee3.leerarch();
 		lee3.muestravec();
-		//hasta aca primer txt
-		
-		
+		try {
+			archivoSalida.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}//hasta aca primer txt
+
+
 		//segundo txt
-		
+		try {
+			archivoSalida = new PrintStream(new FileOutputStream("resultados_primera_parte_2.txt"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.setOut(archivoSalida);
 		System.out.println(	"Parte 1 Ejercicio b):");
 		MatrizDePasaje m =new MatrizDePasaje();
 		m.crearMatriz();
 		LeeArch leeB=new LeeArch(2);
 		leeB.leerarch();
-	
+		try {
+			archivoSalida.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		//tercer txt
+		try {
+			archivoSalida = new PrintStream(new FileOutputStream("resultados_primera_parte_3.txt"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.setOut(archivoSalida);
 		System.out.println(	"Parte 1 Ejercicio c):");
 		VectorEstacionario vec=new VectorEstacionario();
 		System.out.println("Vector estacionario:"+vec.calculaVector(m.devuelveMat()));
-		//cuarto txt
+		try {
+			archivoSalida.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		try {//cuarto txt
+			archivoSalida = new PrintStream(new FileOutputStream("resultados_segunda_parte_1.txt"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.setOut(archivoSalida);
+
 		System.out.println(	"Parte 2 Ejercicio b):");
 		System.out.println(	"Kraft");
 		lee.kraft();
 		System.out.println(	"Longitud media:");
 		lee.longmMedia();
+		try {
+			archivoSalida.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		//quinto txt
+		try {//cuarto txt
+			archivoSalida = new PrintStream(new FileOutputStream("resultados_segunda_parte_2.txt"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.setOut(archivoSalida);
 		System.out.println("Escenario 1: ");
 		lee.rendimiento();
 		lee.redundancia();
@@ -54,11 +106,26 @@ public class Prueba {
 		lee3.rendimiento();
 		lee3.redundancia();
 		System.out.println("\n\n\n");
+		try {
+			archivoSalida.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		// los ultimos 3 txt
+		try {//cuarto txt
+			archivoSalida = new PrintStream(new FileOutputStream("resultados_segunda_parte_3.txt"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.setOut(archivoSalida);
 		Arrays.sort(lee.getPalabra());
 		Arrays.sort(lee2.getPalabra());
 		Arrays.sort(lee3.getPalabra());
-		
+		try {
+			archivoSalida.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 /*
 		System.out.println("\n\n\n\n\n");
 		ShannonFano shannonFano=new ShannonFano(lee.getPalabra());
