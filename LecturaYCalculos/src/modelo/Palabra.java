@@ -5,9 +5,9 @@ public String palabra;
 public int repeticiones;
 public Double cantInfo;
 
-public Palabra() {
+public Palabra(String palabra) {
 	super();
-	this.palabra = "";
+	this.palabra = palabra;
 	this.repeticiones =0;
 	this.cantInfo =  0.0;
 
