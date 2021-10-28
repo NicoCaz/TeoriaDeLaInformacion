@@ -9,7 +9,7 @@ public Palabra(String palabra) {
 	super();
 	this.palabra = palabra;
 	this.repeticiones =0;
-	this.cantInfo =  0.0;
+
 
 }
 
