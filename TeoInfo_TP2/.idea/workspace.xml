@@ -4,14 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6bc70de-542f-4375-8bb6-d9d067dd1958" name="Default Changelist" comment="" />
+    <list default="true" id="c6bc70de-542f-4375-8bb6-d9d067dd1958" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/LeeArch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/LeeArch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Palabra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Palabra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/modelo/LeeArch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modelo/LeeArch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/modelo/Palabra.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modelo/Palabra.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/.idea/vcs.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="209IiFWw4g8wbAM1Zi1tGNAuC6O" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -24,7 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/pom.xml" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RunManager">

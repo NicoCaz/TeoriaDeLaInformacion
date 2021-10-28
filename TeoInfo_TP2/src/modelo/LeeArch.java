@@ -36,13 +36,17 @@ public class LeeArch {
     private void crearvec() {
         this.vectorPalabras=new Palabra[cont];
         int i=0;
-        Iterator it = palabras.entrySet().iterator();
+        Iterator<Map.Entry<String, Integer>> it = palabras.entrySet().iterator();
         while (it.hasNext()){
             Map.Entry pair =(Map.Entry)it.next();
-            this.vectorPalabras[i++]=new Palabra((String) pair.getKey(),(int)pair.getValue());
+            this.vectorPalabras[i]=new Palabra((String) pair.getKey(),(int)pair.getValue());
+            i++;
         }
-        Arrays.sort(vectorPalabras);
+        System.out.println(this.vectorPalabras[cont-1]);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaa");
+        Arrays.sort(this.vectorPalabras);
 
+        System.out.println(this.vectorPalabras);
     }
 
 
