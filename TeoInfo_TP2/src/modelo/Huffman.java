@@ -1,6 +1,8 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class Huffman {
@@ -8,6 +10,7 @@ public class Huffman {
     private ArrayList<NodoHuffman> nodosDeHuffman=new ArrayList<>();
     public Huffman(Palabra[] vecPalabra){
         for(Palabra palabra: vecPalabra){
+            System.out.println(palabra.repeticiones);
             nodosDeHuffman.add(new NodoHuffman(palabra.palabra,palabra.repeticiones));
         }
         this.creoHuffman();
@@ -28,6 +31,7 @@ public class Huffman {
             this.nodosDeHuffman.remove(0);
             this.nodosDeHuffman.remove(0);
             this.nodosDeHuffman.add(nuevoNodo);
+            Collections.sort(nodosDeHuffman);
             creoHuffman();
         }
 
@@ -62,10 +66,15 @@ public class Huffman {
         @Override
         public int compareTo(NodoHuffman o) {
             if(this.cant<o.cant)
-                return 1;
+                return -1;
             if(this.cant==o.cant)
                 return 0;
-            return -1;
+            return 1;
+        }
+
+        @Override
+        public String toString() {
+            return this.valor+" ";
         }
     }
 }
