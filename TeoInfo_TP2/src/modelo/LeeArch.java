@@ -42,15 +42,13 @@ public class LeeArch {
             this.vectorPalabras[i]=new Palabra((String) pair.getKey(),(int)pair.getValue());
             i++;
         }
-        System.out.println(this.vectorPalabras[cont-1]);
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaa");
         Arrays.sort(this.vectorPalabras);
-
-        System.out.println(this.vectorPalabras);
     }
 
 
-
+public Palabra[] vectorPalabras(){
+        return this.vectorPalabras;
+}
 
 
 
