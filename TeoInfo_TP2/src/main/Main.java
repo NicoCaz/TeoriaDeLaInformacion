@@ -12,5 +12,6 @@ public class Main {
         lectura.lee("Argentina.txt");
         //ShannonFano codifica =new ShannonFano(lectura.vectorPalabras());
         Huffman codificacionHuffman=new Huffman(lectura.vectorPalabras());
+        codificacionHuffman.muestroTabla();
     }
 }

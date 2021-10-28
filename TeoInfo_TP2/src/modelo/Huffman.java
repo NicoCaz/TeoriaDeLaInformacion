@@ -1,19 +1,25 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
+import java.util.HashMap;
+
 
 public class Huffman {
+    private HashMap<String, String>tabla=new HashMap<>();
     private NodoHuffman arbolDeHuffman=null;
     private ArrayList<NodoHuffman> nodosDeHuffman=new ArrayList<>();
+    private Palabra[] vecPalabras;
     public Huffman(Palabra[] vecPalabra){
+        this.vecPalabras=vecPalabra;
         for(Palabra palabra: vecPalabra){
-            System.out.println(palabra.repeticiones);
             nodosDeHuffman.add(new NodoHuffman(palabra.palabra,palabra.repeticiones));
         }
         this.creoHuffman();
+
+        generaTabla(arbolDeHuffman,"");
+
+
     }
     private void creoHuffman(){
         NodoHuffman aux1;
@@ -35,11 +41,26 @@ public class Huffman {
             creoHuffman();
         }
 
+
+    }
+
+    private void generaTabla(NodoHuffman nodo,String codigo){
+        if(nodo.esHoja())
+            this.tabla.put(nodo.valor,codigo);
+        else
+            if(nodo.izq!=null)
+                generaTabla(nodo.izq,codigo+"0");
+            if(nodo.der!=null)
+                generaTabla(nodo.der,codigo+"1");
     }
 
 
+    public void muestroTabla(){
+        for(Palabra palabra : vecPalabras){
+            System.out.println(tabla.get(palabra.palabra));
+        }
 
-
+}
 
 
 
@@ -61,6 +82,9 @@ public class Huffman {
             this.valor="Nodo interno";
             this.der=der;
             this.izq=izq;
+        }
+        public Boolean esHoja(){
+            return (this.izq==null)&& (this.der==null);
         }
 
         @Override

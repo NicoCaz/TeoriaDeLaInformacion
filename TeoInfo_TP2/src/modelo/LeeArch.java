@@ -43,7 +43,6 @@ public class LeeArch {
             i++;
         }
         Arrays.sort(this.vectorPalabras);
-        System.out.println(this.vectorPalabras);
     }
 
 
