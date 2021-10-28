@@ -10,6 +10,7 @@ public class LeeArch {
     private File archivo = null;
     private  Scanner lector;
     private int cont=0;
+
     public void lee(String nombreArch) throws IOException {
         String ruta;
         String aux;
