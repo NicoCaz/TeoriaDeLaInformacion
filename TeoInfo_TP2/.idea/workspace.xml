@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c6bc70de-542f-4375-8bb6-d9d067dd1958" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/LeeArch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/LeeArch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Palabra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Palabra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modelo/LeeArch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modelo/LeeArch.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/modelo/Palabra.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modelo/Palabra.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/.idea/vcs.xml" afterDir="false" />
     </list>
