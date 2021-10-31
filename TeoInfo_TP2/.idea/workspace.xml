@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6bc70de-542f-4375-8bb6-d9d067dd1958" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modelo/CodificaArch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/LeeArch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/LeeArch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Rlc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/src/modelo/Rlc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/src/modelo/Rlc.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +27,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="209IiFWw4g8wbAM1Zi1tGNAuC6O" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,7 +40,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RunManager">
@@ -103,5 +101,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
