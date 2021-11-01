@@ -1,18 +1,21 @@
 package modelo;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Rlc {
     private  Scanner lector;
     private File archivo = null;
-    public void comprimir(String nombreArch) throws FileNotFoundException {
+    private FileWriter archivoSalida;
+    private PrintWriter pw = null;
+    public void comprimir(String nombreArch) throws IOException {
         int cont = 0;
         String act,ant=null;
         String ruta;
         String aux;
         ruta = System.getProperty("user.dir");
+        archivoSalida= new FileWriter(ruta+"/"+nombreArch+"."+"RLC");
+        pw= new PrintWriter(archivoSalida);
         archivo = new File(ruta + "/"+nombreArch);
         String linea;
         lector= new Scanner(archivo);
@@ -26,6 +29,7 @@ public class Rlc {
                 if(ant.equals(act)){
                     cont++;
                 }else{
+                    pw.println(cont+""+ant);
                     // guardar cont y ant en el archivo
                     cont=1;
                     ant=act;
@@ -35,5 +39,10 @@ public class Rlc {
         /*
          *aca hay que guardar el anterior y el cont
          * */
+        pw.println(cont+""+ant);
+
+        if(pw!=null)
+            pw.close();
+        System.out.println("archivo creado");
     }
 }

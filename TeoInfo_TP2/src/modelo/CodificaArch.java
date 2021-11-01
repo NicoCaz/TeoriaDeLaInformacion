@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class CodificaArch {
     private File archivo = null;
     private  Scanner lector;
-    FileReader fr=null;
     PrintWriter pw = null;
 
     public CodificaArch(){
@@ -28,8 +27,6 @@ public class CodificaArch {
             linea= aux.replaceAll("[^\\w\\s]","");
             pw.print(tabla.get(linea));
         }
-        if (null != fr)
-            fr.close();
         if(pw!=null)
             pw.close();
         System.out.println("archivo creado");
