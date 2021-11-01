@@ -15,8 +15,8 @@ public class Rlc {
         String aux;
         ruta = System.getProperty("user.dir");
         archivoSalida= new FileWriter(ruta+"/"+nombreArch+"."+"RLC");
-        pw= new PrintWriter(archivoSalida);
         archivo = new File(ruta + "/"+nombreArch);
+        pw= new PrintWriter(archivoSalida);
         String linea;
         lector= new Scanner(archivo);
         while(lector.hasNext()){
