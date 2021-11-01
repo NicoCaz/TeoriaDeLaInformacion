@@ -19,7 +19,7 @@ public class ShannonFano {
 
 
 
-    HashMap<String, String> tabla = new HashMap<String, String>();
+    HashMap<Character, String> tabla = new HashMap<Character, String>();
     private Double entropia=0.0;
     private Double longMedia=0.0;
     public ShannonFano(Palabra[] palabra,int cantPal) {
@@ -39,16 +39,16 @@ public class ShannonFano {
             if(palabra[i].repeticiones!=0) {
                 prob= palabra[i].repeticiones / (cantPal+0.0);
                 longMedia+=prob*tabla.get(palabra[i].palabra).length();
-                this.entropia+= prob*(-logbase(prob,2));
+                this.entropia+= prob*(logbase(1/prob,2));
             }
         }
     }
 
-    public HashMap<String, String> getTablaCodificada() {
+    public HashMap<Character, String> getTablaCodificada() {
         return this.tabla;
     }
 
-    private void creoTabla(HashMap<String, String> tabla, List<Simbolo> simbolos) {
+    private void creoTabla(HashMap<Character, String> tabla, List<Simbolo> simbolos) {
 
         if (simbolos.size() > 1) {
             int suma = 0;
@@ -58,13 +58,13 @@ public class ShannonFano {
             int mitad = 0;
             int sumaAux = 0;
             double aux;
-            String simbolo;
+            Character simbolo;
             String acumula;
             for (Simbolo s : simbolos) {
                 aux = s.getFrecuencia();
                 simbolo = s.getSimbolo();
                 if (simbolo == null)
-                    simbolo = "";
+                    simbolo=null;
                 acumula = tabla.get(simbolo);
                 if (sumaAux + aux < suma / 2) {//Todavia no me paso
                     tabla.put(simbolo, acumula + "0");

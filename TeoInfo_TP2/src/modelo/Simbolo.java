@@ -1,10 +1,10 @@
 package modelo;
 
 public class Simbolo implements Comparable<Simbolo> {
-    private String c;
+    private Character c;
     private double frecuencia;
 
-    Simbolo(String c, double freq) {
+    Simbolo(Character c, double freq) {
         this.c = c;
         this.frecuencia = freq;
     }
@@ -12,7 +12,7 @@ public class Simbolo implements Comparable<Simbolo> {
     public double getFrecuencia(){
         return this.frecuencia;
     }
-    public String getSimbolo(){
+    public Character getSimbolo(){
         return  this.c;
     }
 

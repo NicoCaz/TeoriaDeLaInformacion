@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6bc70de-542f-4375-8bb6-d9d067dd1958" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Utilidades/Calculos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Aleman.txt.RLC" beforeDir="false" afterPath="$PROJECT_DIR$/Aleman.txt.RLC" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Argentina.txt.RLC" beforeDir="false" afterPath="$PROJECT_DIR$/Argentina.txt.RLC" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imagen.raw.RLC" beforeDir="false" afterPath="$PROJECT_DIR$/imagen.raw.RLC" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilidades/Calculos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilidades/Calculos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/CodificaArch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/CodificaArch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Huffman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Huffman.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/LeeArch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/LeeArch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Palabra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Palabra.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Rlc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Rlc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/ShannonFano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/ShannonFano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Simbolo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Simbolo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/modelo/ShannonFano.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modelo/ShannonFano.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/src/modelo/Rlc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/src/modelo/Rlc.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

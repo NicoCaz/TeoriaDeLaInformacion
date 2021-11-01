@@ -10,7 +10,7 @@ import static Utilidades.Calculos.logbase;
 public class Huffman {
     private Double entropia=0.0;
     private Double longMedia=0.0;
-    private HashMap<String, String>tabla=new HashMap<>();
+    private HashMap<Character, String>tabla=new HashMap<>();
     private NodoHuffman arbolDeHuffman=null;
     private ArrayList<NodoHuffman> nodosDeHuffman=new ArrayList<>();
     private Palabra[] vecPalabras;
@@ -27,7 +27,7 @@ public class Huffman {
             if(vecPalabra[i].repeticiones!=0) {
                 prob= vecPalabra[i].repeticiones / (cantPal+0.0);
                 longMedia+=prob*tabla.get(vecPalabra[i].palabra).length();
-                this.entropia+= prob*(-logbase(prob,2));
+                this.entropia+= prob*(logbase(1/prob,2));
             }
         }
 
@@ -78,11 +78,11 @@ public class Huffman {
 
     class NodoHuffman implements Comparable<NodoHuffman>{
         int cant;
-        String valor;
+        Character valor;
         NodoHuffman der;
         NodoHuffman izq;
 
-        public NodoHuffman(String valor,int cant){
+        public NodoHuffman(Character valor,int cant){
             this.cant=cant;
             this.valor=valor;
             this.der=null;
@@ -90,7 +90,7 @@ public class Huffman {
         }
         public NodoHuffman(int cant,NodoHuffman izq,NodoHuffman der){
             this.cant=cant;
-            this.valor="Nodo interno";
+            this.valor=null;
             this.der=der;
             this.izq=izq;
         }

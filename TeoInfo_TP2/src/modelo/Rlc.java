@@ -31,7 +31,7 @@ public class Rlc {
                 if(ant.equals(act)){
                     cont++;
                 }else{
-                    pw.println(cont+" "+ant);
+                    pw.println(ant+cont);
                     cont=1;
                     ant=act;
                 }

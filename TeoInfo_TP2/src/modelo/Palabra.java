@@ -1,15 +1,15 @@
 package modelo;
 
 public class Palabra implements Comparable<Palabra>{
-    public String palabra;
+    public Character palabra;
     public int repeticiones;
 
-    public Palabra(String palabra) {
+    public Palabra(Character palabra) {
         super();
         this.palabra = palabra;
         this.repeticiones =0;
     }
-    public Palabra(String palabra,int repeticiones) {
+    public Palabra(Character palabra,int repeticiones) {
         super();
         this.palabra = palabra;
         this.repeticiones =repeticiones;
