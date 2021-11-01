@@ -13,7 +13,7 @@ public class LeeArch {
     private FileReader fr = null;
     private BufferedReader br = null;
 
-    private int cantidadPalabras=0;
+    private int cantidadPalabras=0,cantidadTotalDeSimbolos=0;
     public static Double entropia;
 
     public void lee(String nombreArch) throws IOException {
@@ -27,7 +27,7 @@ public class LeeArch {
         while ((linea=br.readLine() )!= null){
 
             for(int i=0;i<linea.length();i++){
-
+                cantidadTotalDeSimbolos++;
                 if(palabras.get(linea.charAt(i))==null){
                     palabras.put(linea.charAt(i),1);
                     cantidadPalabras++;
@@ -61,7 +61,7 @@ public class LeeArch {
 
 
     public int cantPalabras() {
-        return cantidadPalabras;
+        return cantidadTotalDeSimbolos;
     }
 
     public void muestra(){

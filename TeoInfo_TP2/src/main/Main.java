@@ -21,10 +21,18 @@ public class Main {
         Huffman codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras());
         codificacionRlc.comprimir("Argentina.txt",lectura.cantPalabras());
         lectura.muestra();
-        System.out.println("longitud media de 'Argentina.txt'");
-        System.out.println("Entropia del archivo: "+codificaShannonFano.getEntropia());
-        System.out.println("rendimiento:"+rendimiento(codificaShannonFano.getLongMedia(), lectura.cantPalabras()));
-        System.out.println("redundancia:"+redundancia(codificaShannonFano.getLongMedia(), lectura.cantPalabras()));
+        System.out.println("'Argentina.txt' con shannon");
+
+              System.out.println("Entropia del archivo: "+codificaShannonFano.getEntropia());
+       System.out.println("rendimiento:"+rendimiento(codificaShannonFano.getLongMedia(), lectura.cantPalabras()));
+       System.out.println("redundancia:"+redundancia(codificaShannonFano.getLongMedia(), lectura.cantPalabras()));
+/*
+        System.out.println("'Argentina.txt' con huffman");
+        System.out.println("Entropia del archivo: "+codificacionHuffman.getEntropia());
+        System.out.println("rendimiento:"+rendimiento(codificacionHuffman.getLongMedia(), lectura.cantPalabras()));
+        System.out.println("redundancia:"+redundancia(codificacionHuffman.getLongMedia(), lectura.cantPalabras()));
+
+*/
 
         lectura.lee("Aleman.txt");
         codificaShannonFano=new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras());
