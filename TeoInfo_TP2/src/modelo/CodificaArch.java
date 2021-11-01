@@ -29,7 +29,7 @@ public class CodificaArch {
         }
         if(pw!=null)
             pw.close();
-        System.out.println("archivo creado");
+
     }
 
 }

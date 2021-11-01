@@ -5,10 +5,25 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class ShannonFano {
-    HashMap<String, String> tabla = new HashMap<String, String>();
+import static Utilidades.Calculos.logbase;
 
-    public ShannonFano(Palabra[] palabra) {
+public class ShannonFano {
+    public Double getEntropia() {
+        return entropia;
+    }
+
+
+    public Double getLongMedia() {
+        return longMedia;
+    }
+
+
+
+    HashMap<String, String> tabla = new HashMap<String, String>();
+    private Double entropia=0.0;
+    private Double longMedia=0.0;
+    public ShannonFano(Palabra[] palabra,int cantPal) {
+
         Arrays.sort(palabra);
         ArrayList<Simbolo> simbolos = new ArrayList<Simbolo>();
         int indice = 0;
@@ -19,10 +34,14 @@ public class ShannonFano {
             indice++;
         }
         creoTabla(this.tabla, simbolos);
-        for (Palabra o : palabra) {
-            System.out.println(this.tabla.get(o.palabra));
+        double prob;
+        for(int i=0;i<tabla.size();i++) {
+            if(palabra[i].repeticiones!=0) {
+                prob= palabra[i].repeticiones / (cantPal+0.0);
+                longMedia+=prob*tabla.get(palabra[i].palabra).length();
+                this.entropia+= prob*(-logbase(prob,2));
+            }
         }
-
     }
 
     public HashMap<String, String> getTablaCodificada() {

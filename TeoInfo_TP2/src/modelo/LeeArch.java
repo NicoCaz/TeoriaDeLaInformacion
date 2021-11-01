@@ -5,11 +5,13 @@ import java.util.*;
 
 
 public class LeeArch {
+
     private HashMap<String,Integer> palabras=new HashMap<String,Integer>();
     private Palabra[] vectorPalabras;
     private File archivo = null;
     private  Scanner lector;
-    private int cont=0;
+    private int cont=0,cantidadPalabras=0;
+    public static Double entropia;
 
     public void lee(String nombreArch) throws IOException {
         String ruta;
@@ -19,23 +21,23 @@ public class LeeArch {
         String linea;
         lector= new Scanner(archivo);
         while(lector.hasNext()){
-
+            cont++;
             aux= lector.next();
             linea= aux.replaceAll("[^\\w\\s]","");
-            if(palabras.get(linea)==null){
-                palabras.put(linea,1);
-                cont++;
+            if(palabras.get(linea.toLowerCase())==null){
+                palabras.put(linea.toLowerCase(),1);
+                cantidadPalabras++;
             }else{
-                int cont;
-                cont=palabras.get(linea);
-                palabras.remove(linea);
-                palabras.put(linea,cont+1);
+                int contaux;
+                contaux=palabras.get(linea.toLowerCase());
+                palabras.remove(linea.toLowerCase());
+                palabras.put(linea.toLowerCase(),contaux+1);
             }
         }
         this.crearvec();
     }
     private void crearvec() {
-        this.vectorPalabras=new Palabra[cont];
+        this.vectorPalabras=new Palabra[cantidadPalabras];
         int i=0;
         Iterator<Map.Entry<String, Integer>> it = palabras.entrySet().iterator();
         while (it.hasNext()){
@@ -53,14 +55,16 @@ public Palabra[] vectorPalabras(){
 
 
 
-
+public int cantPalabras(){
+        return this.cont;
+}
 
 
 
 
     public void muestra(){
-        System.out.println("cantidad de palabras: "+cont+"\n");
-        for(int i=0;i<cont;i++){
+        System.out.println("cantidad de palabras: "+cantidadPalabras+"\n");
+        for(int i=0;i<cantidadPalabras;i++){
             System.out.println(vectorPalabras[i]+"\n");
         }
     }

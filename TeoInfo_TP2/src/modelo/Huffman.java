@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
+import static Utilidades.Calculos.logbase;
+
 
 public class Huffman {
+    private Double entropia=0.0;
+    private Double longMedia=0.0;
     private HashMap<String, String>tabla=new HashMap<>();
     private NodoHuffman arbolDeHuffman=null;
     private ArrayList<NodoHuffman> nodosDeHuffman=new ArrayList<>();
     private Palabra[] vecPalabras;
-    public Huffman(Palabra[] vecPalabra){
+    public Huffman(Palabra[] vecPalabra,int cantPal){
         this.vecPalabras=vecPalabra;
         for(Palabra palabra: vecPalabra){
             nodosDeHuffman.add(new NodoHuffman(palabra.palabra,palabra.repeticiones));
@@ -18,7 +22,14 @@ public class Huffman {
         this.creoHuffman();
 
         generaTabla(arbolDeHuffman,"");
-
+        double prob;
+        for(int i=0;i<tabla.size();i++) {
+            if(vecPalabra[i].repeticiones!=0) {
+                prob= vecPalabra[i].repeticiones / (cantPal+0.0);
+                longMedia+=prob*tabla.get(vecPalabra[i].palabra).length();
+                this.entropia+= prob*(-logbase(prob,2));
+            }
+        }
 
     }
     private void creoHuffman(){
@@ -101,4 +112,14 @@ public class Huffman {
             return this.valor+" ";
         }
     }
+    public Double getEntropia() {
+        return entropia;
+    }
+
+
+    public Double getLongMedia() {
+        return longMedia;
+    }
+
+
 }
