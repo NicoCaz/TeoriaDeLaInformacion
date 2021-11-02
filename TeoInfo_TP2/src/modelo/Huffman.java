@@ -80,6 +80,8 @@ public class Huffman {
             for(int i=0;i<linea.length();i++){
                 System.out.print(tabla.get(linea.charAt(i)));
             }
+            System.out.print(tabla.get('\n'));
+
         }
         archivoSalida.close();
 

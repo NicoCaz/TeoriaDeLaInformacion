@@ -1,5 +1,6 @@
 package modelo;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -102,4 +103,26 @@ public class ShannonFano {
         	System.out.println(this.tabla.get(palabra[i].palabra));
 
 }
+
+    public void comprimir(String nombreArch) throws IOException {
+        String ruta = System.getProperty("user.dir");
+        PrintStream archivoSalida = null;
+        archivoSalida= new PrintStream(new FileOutputStream(ruta+"/"+nombreArch+"ShannonFano"+".txt"));
+        System.setOut(archivoSalida);
+        File archivo = new File(ruta + "/" + nombreArch);
+        FileReader fr=new FileReader(archivo);
+        BufferedReader br = new BufferedReader(fr);
+        String linea;
+        while((linea=br.readLine() )!= null){
+            for(int i=0;i<linea.length();i++){
+                System.out.print(tabla.get(linea.charAt(i)));
+            }
+            System.out.print(tabla.get('\n'));
+        }
+        archivoSalida.close();
+
+
+    }
+
+
 }

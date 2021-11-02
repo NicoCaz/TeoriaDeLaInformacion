@@ -11,7 +11,7 @@ public class Rlc {
     private FileReader fr = null;
     private BufferedReader br = null;
     PrintStream archivoSalida = null;
-    public void comprimir(String nombreArch,int cantPal) throws IOException {
+    public void comprimir(String nombreArch) throws IOException {
         int cont = 0;
         Character act,ant=null;
         String ruta;
@@ -47,6 +47,7 @@ public class Rlc {
                 }
                 }
             }
+            System.out.print(1+""+'\n');
         }
 
         System.out.print(cont+""+ant);

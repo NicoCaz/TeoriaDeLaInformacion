@@ -38,11 +38,21 @@ public class LeeArch {
                     palabras.put(linea.charAt(i),contaux+1);
                 }
             }
-
-        }
+            cantidadTotalDeSimbolos++;
+            if(palabras.get('\n')==null){
+                palabras.put('\n',1);
+                cantidadPalabras++;
+            }else{
+                int contaux;
+                contaux=palabras.get('\n');
+                palabras.remove('\n');
+                palabras.put('\n',contaux+1);
+            }
         this.crearvec();
+        }
     }
-    private void crearvec() {
+
+    private void crearvec(){
         this.vectorPalabras=new Palabra[cantidadPalabras];
         int i=0;
         Iterator<Map.Entry<Character, Integer>> it = palabras.entrySet().iterator();

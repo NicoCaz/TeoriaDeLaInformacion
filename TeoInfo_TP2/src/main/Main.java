@@ -20,10 +20,11 @@ public class Main {
         System.out.println();
         ShannonFano codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras());
         Huffman codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras());
-        codificacionRlc.comprimir("Argentina.txt",lectura.cantPalabras());
+        codificacionRlc.comprimir("Argentina.txt");
         codificacionHuffman.comprimir("Argentina.txt");
+        codificaShannonFano.comprimir("Argentina.txt");
         //lectura.muestra();
-        codificacionRlc.comprimir("Argentina.txt", lectura.cantPalabras());
+        codificacionRlc.comprimir("Argentina.txt");
         System.out.println("'Argentina.txt' con shannon");
         System.out.println("Entropia del archivo: "+codificaShannonFano.getEntropia());
        System.out.println("rendimiento:"+rendimiento(codificaShannonFano.getEntropia(), codificaShannonFano.getLongMedia()));
