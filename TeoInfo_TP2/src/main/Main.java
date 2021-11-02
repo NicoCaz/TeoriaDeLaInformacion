@@ -13,7 +13,7 @@ import static Utilidades.Calculos.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-      /*  LeeArch lectura=new LeeArch();
+       LeeArch lectura=new LeeArch();
         Rlc codificacionRlc =new Rlc();
 
         lectura.lee("Argentina.txt");
@@ -21,18 +21,21 @@ public class Main {
         ShannonFano codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras());
         Huffman codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras());
         codificacionRlc.comprimir("Argentina.txt",lectura.cantPalabras());
-        lectura.muestra();
+        //lectura.muestra();
+        codificacionRlc.comprimir("Argentina.txt", lectura.cantPalabras());
         System.out.println("'Argentina.txt' con shannon");
-
-              System.out.println("Entropia del archivo: "+codificaShannonFano.getEntropia());
-       System.out.println("rendimiento:"+rendimiento(codificaShannonFano.getLongMedia(), lectura.cantPalabras()));
-       System.out.println("redundancia:"+redundancia(codificaShannonFano.getLongMedia(), lectura.cantPalabras()));
+        System.out.println("Entropia del archivo: "+codificaShannonFano.getEntropia());
+       System.out.println("rendimiento:"+rendimiento(codificaShannonFano.getEntropia(), codificaShannonFano.getLongMedia()));
+       System.out.println("redundancia:"+redundancia(codificaShannonFano.getEntropia(), codificaShannonFano.getLongMedia()));
 
         System.out.println("'Argentina.txt' con huffman");
         System.out.println("Entropia del archivo: "+codificacionHuffman.getEntropia());
-        System.out.println("rendimiento:"+rendimiento(codificacionHuffman.getLongMedia(), lectura.cantPalabras()));
-        System.out.println("redundancia:"+redundancia(codificacionHuffman.getLongMedia(), lectura.cantPalabras()));
+        System.out.println("rendimiento:"+rendimiento(codificacionHuffman.getEntropia(), codificacionHuffman.getLongMedia()));
+        System.out.println("redundancia:"+redundancia(codificacionHuffman.getEntropia(), codificacionHuffman.getLongMedia()));
 
+        System.out.println("longitud media"+codificaShannonFano.getLongMedia());
+
+        /*
 
 
         lectura.lee("Aleman.txt");
@@ -49,9 +52,9 @@ public class Main {
         
         System.out.println("tabla de huffman: ");
         codificacionHuffman.muestroTabla();
-       */
+
     	RLC2 rlc =new RLC2();
     	rlc.leearch("Argentina.txt");
-
+        */
     }
 }

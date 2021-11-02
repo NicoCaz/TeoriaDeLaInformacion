@@ -31,7 +31,7 @@ private BufferedReader br = null;
 	            	 char caracter = (char) caracterLeido;
 	            	 if (caracterAnterior!='+') {
 	            		 if(caracterAnterior!=caracter) {
-	            			 System.out.println(caracterAnterior+" "+cont);
+	            			 System.out.println(caracterAnterior+""+cont);
 	            			 caracterAnterior=caracter;
 	            			 cont=1;
 	            		 }

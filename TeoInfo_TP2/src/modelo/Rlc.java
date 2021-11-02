@@ -4,44 +4,56 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Rlc {
-    private Double entropia=0.0;
-    private Double longMedia=0.0;
-    private  Scanner lector;
+    private final Double entropia=0.0;
+    private final Double longMedia=0.0;
     private File archivo = null;
-    private FileWriter archivoSalida;
-    private PrintWriter pw = null;
+
+    private FileReader fr = null;
+    private BufferedReader br = null;
+    PrintStream archivoSalida = null;
     public void comprimir(String nombreArch,int cantPal) throws IOException {
         int cont = 0;
-        String act,ant=null;
+        Character act,ant=null;
         String ruta;
         String aux;
         ruta = System.getProperty("user.dir");
-        archivoSalida= new FileWriter(ruta+"/"+nombreArch+"."+"RLC");
+        try {
+            archivoSalida= new PrintStream(new FileOutputStream(ruta+"/"+nombreArch+"rlc"+".txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        System.setOut(archivoSalida);
         archivo = new File(ruta + "/"+nombreArch);
-        pw= new PrintWriter(archivoSalida);
+        try {
+            fr = new FileReader(archivo);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        br=new BufferedReader(fr);
         String linea;
-        lector= new Scanner(archivo);
-        while(lector.hasNext()){
-            act= lector.next();
-            act= act.replaceAll("[^\\w\\s]","");
+
+        while((linea=br.readLine() )!= null){
+            for(int i=0;i<linea.length();i++){
             if(ant==null){
                 cont++;
-                ant=act;
+                ant=linea.charAt(i);
             }else{
-                if(ant.equals(act)){
+                if(ant.equals(linea.charAt(i))){
                     cont++;
                 }else{
-                    pw.println(ant+cont);
+                    System.out.print(cont+""+ant);
                     cont=1;
-                    ant=act;
+                    ant=linea.charAt(i);
+                }
                 }
             }
         }
 
-        pw.println(cont+" "+ant);
-
-        if(pw!=null)
-            pw.close();
-
+        System.out.print(cont+""+ant);
+        /*try {
+            archivoSalida.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }*/
     }
 }
