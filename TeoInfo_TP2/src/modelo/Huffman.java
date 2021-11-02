@@ -68,9 +68,10 @@ public class Huffman {
 
 
     public void comprimir(String nombreArch) throws IOException {
+        int p=nombreArch.lastIndexOf('.');
         String ruta = System.getProperty("user.dir");
         PrintStream archivoSalida = null;
-        archivoSalida= new PrintStream(new FileOutputStream(ruta+"/archivosSalida/"+nombreArch+"Huffman"+".txt"));
+        archivoSalida= new PrintStream(new FileOutputStream(ruta+"/archivosSalida/"+nombreArch.substring(0,p)+".Huf"));
         System.setOut(archivoSalida);
         File archivo = new File(ruta + "/archivosEntrada/" + nombreArch);
         FileReader fr=new FileReader(archivo);

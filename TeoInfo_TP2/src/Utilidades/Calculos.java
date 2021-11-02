@@ -14,4 +14,5 @@ public class Calculos {
         return (Math.log10(num) / Math.log10(base));
     }
 
+
 }

@@ -12,13 +12,14 @@ public class Rlc {
     private BufferedReader br = null;
     PrintStream archivoSalida = null;
     public void comprimir(String nombreArch) throws IOException {
+        int p=nombreArch.lastIndexOf('.');
         int cont = 0;
         Character act,ant=null;
         String ruta;
 
         ruta = System.getProperty("user.dir");
         try {
-            archivoSalida= new PrintStream(new FileOutputStream(ruta+"/archivosSalida/"+nombreArch+"rlc"+".txt"));
+            archivoSalida= new PrintStream(new FileOutputStream(ruta+"/archivosSalida/"+nombreArch.substring(0,p)+".RLC"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
