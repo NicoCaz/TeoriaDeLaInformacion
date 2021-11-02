@@ -22,6 +22,7 @@ public class ShannonFano {
     HashMap<Character, String> tabla = new HashMap<Character, String>();
     private Double entropia=0.0;
     private Double longMedia=0.0;
+    
     public ShannonFano(Palabra[] palabra,int cantPal) {
 
         Arrays.sort(palabra);
@@ -35,6 +36,7 @@ public class ShannonFano {
         }
         creoTabla(this.tabla, simbolos);
         double prob;
+        
         for(int i=0;i<tabla.size();i++) {
             if(palabra[i].repeticiones!=0) {
                 prob= palabra[i].repeticiones / (cantPal+0.0);
@@ -42,6 +44,9 @@ public class ShannonFano {
                 this.entropia+= prob*(logbase(1/prob,2));
             }
         }
+        System.out.println("Tabla de Shannon");
+        muestroTabla(palabra);
+        
     }
 
     public HashMap<Character, String> getTablaCodificada() {
@@ -92,4 +97,9 @@ public class ShannonFano {
 
         }
     }
+    private void muestroTabla(Palabra palabra[]){
+        for(int i=0;i<this.tabla.size();i++)
+        	System.out.println(this.tabla.get(palabra[i].palabra));
+
+}
 }
