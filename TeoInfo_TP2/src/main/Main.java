@@ -2,6 +2,7 @@ package main;
 
 import modelo.Huffman;
 import modelo.LeeArch;
+import modelo.RLC2;
 import modelo.Rlc;
 import modelo.ShannonFano;
 
@@ -12,7 +13,7 @@ import static Utilidades.Calculos.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        LeeArch lectura=new LeeArch();
+      /*  LeeArch lectura=new LeeArch();
         Rlc codificacionRlc =new Rlc();
 
         lectura.lee("Argentina.txt");
@@ -48,7 +49,9 @@ public class Main {
         
         System.out.println("tabla de huffman: ");
         codificacionHuffman.muestroTabla();
-       
+       */
+    	RLC2 rlc =new RLC2();
+    	rlc.leearch("Argentina.txt");
 
     }
 }
