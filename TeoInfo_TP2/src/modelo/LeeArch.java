@@ -20,7 +20,7 @@ public class LeeArch {
         String ruta;
         String aux;
         ruta = System.getProperty("user.dir");
-        archivo = new File(ruta + "/"+nombreArch);
+        archivo = new File(ruta+"/archivosEntrada" + "/"+nombreArch);
         fr = new FileReader(archivo);
         br=new BufferedReader(fr);
         String linea;
@@ -49,7 +49,7 @@ public class LeeArch {
                 palabras.put('\n',contaux+1);
             }
         this.crearvec();
-        }
+    }
     }
 
     private void crearvec(){

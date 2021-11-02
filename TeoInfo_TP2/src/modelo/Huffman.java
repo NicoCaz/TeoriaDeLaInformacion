@@ -70,9 +70,9 @@ public class Huffman {
     public void comprimir(String nombreArch) throws IOException {
         String ruta = System.getProperty("user.dir");
         PrintStream archivoSalida = null;
-        archivoSalida= new PrintStream(new FileOutputStream(ruta+"/"+nombreArch+"Huffman"+".txt"));
+        archivoSalida= new PrintStream(new FileOutputStream(ruta+"/archivosSalida/"+nombreArch+"Huffman"+".txt"));
         System.setOut(archivoSalida);
-        File archivo = new File(ruta + "/" + nombreArch);
+        File archivo = new File(ruta + "/archivosEntrada/" + nombreArch);
         FileReader fr=new FileReader(archivo);
         BufferedReader br = new BufferedReader(fr);
         String linea;

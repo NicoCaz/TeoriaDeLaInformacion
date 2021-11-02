@@ -18,12 +18,12 @@ public class Rlc {
 
         ruta = System.getProperty("user.dir");
         try {
-            archivoSalida= new PrintStream(new FileOutputStream(ruta+"/"+nombreArch+"rlc"+".txt"));
+            archivoSalida= new PrintStream(new FileOutputStream(ruta+"/archivosSalida/"+nombreArch+"rlc"+".txt"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         System.setOut(archivoSalida);
-        archivo = new File(ruta + "/"+nombreArch);
+        archivo = new File(ruta + "/archivosEntrada/"+nombreArch);
         try {
             fr = new FileReader(archivo);
         } catch (FileNotFoundException e) {
