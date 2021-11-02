@@ -21,6 +21,7 @@ public class Main {
         ShannonFano codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras());
         Huffman codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras());
         codificacionRlc.comprimir("Argentina.txt",lectura.cantPalabras());
+        codificacionHuffman.comprimir("Argentina.txt");
         //lectura.muestra();
         codificacionRlc.comprimir("Argentina.txt", lectura.cantPalabras());
         System.out.println("'Argentina.txt' con shannon");

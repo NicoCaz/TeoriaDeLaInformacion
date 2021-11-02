@@ -1,7 +1,7 @@
 package modelo;
 
 import java.io.*;
-import java.util.Scanner;
+
 
 public class Rlc {
     private final Double entropia=0.0;
@@ -15,7 +15,7 @@ public class Rlc {
         int cont = 0;
         Character act,ant=null;
         String ruta;
-        String aux;
+
         ruta = System.getProperty("user.dir");
         try {
             archivoSalida= new PrintStream(new FileOutputStream(ruta+"/"+nombreArch+"rlc"+".txt"));
@@ -50,10 +50,10 @@ public class Rlc {
         }
 
         System.out.print(cont+""+ant);
-        /*try {
+        try {
             archivoSalida.close();
         }catch(Exception e){
             e.printStackTrace();
-        }*/
+        }
     }
 }
