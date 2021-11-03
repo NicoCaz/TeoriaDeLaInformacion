@@ -2,31 +2,35 @@ package modelo.algoritmos;
 
 import java.io.*;
 
+import static Utilidades.Calculos.redundancia;
+import static Utilidades.Calculos.rendimiento;
+
 
 public class Rlc implements ICodificadores, IInforme{
     private File archivo = null;
     private Boolean esImagen;
+    private String tipoArch;
+    private int cantPal=0;
     private int tamanioEnBits =0;
     private FileReader fr = null;
     private BufferedReader br = null;
     PrintStream archivoSalida = null;
 
-    @Override
-    public Double getEntropia() {
-        return null;
+
+    public Rlc(String nombreArch){
+        if(nombreArch.contains(".txt"))
+            this.tipoArch="TEXT";
+        else {
+            this.tipoArch="NUM";
+        }
+        try {
+            this.comprimir(nombreArch);
+        } catch (IOException e) {
+            System.out.println("imposible comprimir archivo!!!! ("+nombreArch+")");
+        }
+
     }
 
-    @Override
-    public Double getLongMedia() {
-        if(this.esImagen)
-            return 16.0;
-        return 64.0;
-    }
-
-    @Override
-    public int tamanioEnByts() {
-        return this.tamanioEnBits;
-    }
 
     public void comprimir(String nombreArch) throws IOException {
         int p = nombreArch.lastIndexOf('.');
@@ -52,6 +56,7 @@ public class Rlc implements ICodificadores, IInforme{
         if(!this.esImagen) {
             while ((linea = br.readLine()) != null) {
                 for (int i = 0; i < linea.length(); i++) {
+                    this.cantPal++;
                     if (ant == null) {
                         cont = 1;
                         ant = linea.charAt(i);
@@ -65,6 +70,7 @@ public class Rlc implements ICodificadores, IInforme{
                         }
                     }
                 }
+                this.cantPal++;
                 System.out.print(cont + "" + ant);
                 System.out.print(1 + "" + '\n');
                 ant = null;
@@ -72,6 +78,7 @@ public class Rlc implements ICodificadores, IInforme{
             }
         }else{
             while ((linea = br.readLine()) != null) {
+                this.cantPal++;
                 if (color ==-1){
                     cont=1;
                     color=Integer.parseInt(linea);
@@ -96,7 +103,33 @@ public class Rlc implements ICodificadores, IInforme{
     }
 
     @Override
-    public void informe() {
-
+    public Double getEntropia() {
+        return 2.0;
     }
+
+    @Override
+    public Double getLongMedia() {
+        if(this.esImagen)
+            return 16.0;
+        return 64.0;
+    }
+
+    @Override
+    public int tamanioEnByts() {
+        return this.tamanioEnBits;
+    }
+
+    @Override
+    public void informe() {
+            System.out.println("\n----------------R.L.C----------------");
+            System.out.println("Rendimiento -> "+rendimiento(getEntropia(),getLongMedia()));
+            System.out.println("Redundancia -> "+redundancia(getEntropia(),getLongMedia()));
+            System.out.println("Longitud media expresada en Bits->"+ getLongMedia());
+            System.out.println("Entropia -> "+getEntropia());
+            if(tipoArch.equals("NUM"))
+                System.out.println("La taza de comprecion es de -> "+(this.cantPal*32)/(double)this.tamanioEnByts() );// si es de tipo num
+            else
+                System.out.println("La taza de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());// si es string
+        }
+
 }

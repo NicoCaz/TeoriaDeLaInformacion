@@ -98,6 +98,7 @@ public class Huffman implements ICodificadores, IInforme{
 
     @Override
     public void informe() {
+        System.out.println("\n----------------Huffman----------------");
         System.out.println("Rendimiento -> "+rendimiento(getEntropia(),getLongMedia()));
         System.out.println("Redundancia -> "+redundancia(getEntropia(),getLongMedia()));
         System.out.println("Longitud media expresada en Bits->"+ getLongMedia());

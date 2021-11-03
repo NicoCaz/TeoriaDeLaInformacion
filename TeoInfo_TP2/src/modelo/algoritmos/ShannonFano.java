@@ -8,17 +8,19 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import static Utilidades.Calculos.logbase;
+import static Utilidades.Calculos.*;
 
 public class ShannonFano implements ICodificadores, IInforme {
-
+    private String tipoArch;
+    private int cantPal;
     HashMap<Character, String> tabla = new HashMap<Character, String>();
     private Double entropia=0.0;
     private Double longMedia=0.0;
     private int cantidadDeByts=0;
     
-    public ShannonFano(Palabra[] palabra, int cantPal) {
-
+    public ShannonFano(Palabra[] palabra, int cantPal,String tipoArch) {
+        this.tipoArch=tipoArch;
+        this.cantPal=cantPal;
         Arrays.sort(palabra);
         ArrayList<Simbolo> simbolos = new ArrayList<Simbolo>();
 
@@ -128,6 +130,14 @@ public class ShannonFano implements ICodificadores, IInforme {
 
     @Override
     public void informe() {
-
+        System.out.println("\n----------------Shannon Fano----------------");
+        System.out.println("Rendimiento -> "+rendimiento(getEntropia(),getLongMedia()));
+        System.out.println("Redundancia -> "+redundancia(getEntropia(),getLongMedia()));
+        System.out.println("Longitud media expresada en Bits->"+ getLongMedia());
+        System.out.println("Entropia -> "+getEntropia());
+        if(tipoArch.equals("NUM"))
+            System.out.println("La taza de comprecion es de -> "+(this.cantPal*32)/(double)this.tamanioEnByts() );// si es de tipo num
+        else
+            System.out.println("La taza de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());// si es string
     }
 }
