@@ -14,10 +14,10 @@ public class Rlc {
 
     public void comprimir(String nombreArch) throws IOException {
         int p = nombreArch.lastIndexOf('.');
-        int cont = 0;
+        int cont=0,color = -1;
         Character ant = null;
         String ruta;
-
+        Boolean esImagen=nombreArch.contains(".raw");
         ruta = System.getProperty("user.dir");
         try {
             archivoSalida = new PrintStream(new FileOutputStream(ruta + "/archivosSalida/" + nombreArch.substring(0, p) + ".RLC"));
@@ -32,28 +32,45 @@ public class Rlc {
             e.printStackTrace();
         }
         br = new BufferedReader(fr);
-        String linea, lineaAux = null;
-
-        while ((linea = br.readLine()) != null) {
-            for (int i = 0; i < linea.length(); i++) {
-                if (ant == null) {
-                    cont++;
-                    ant = linea.charAt(i);
-                } else {
-                    if (ant.equals(linea.charAt(i))) {
-                        cont++;
-                    } else {
-                        System.out.print(cont + "" + ant);
+        String linea = null;
+        if(!esImagen) {
+            while ((linea = br.readLine()) != null) {
+                for (int i = 0; i < linea.length(); i++) {
+                    if (ant == null) {
                         cont = 1;
                         ant = linea.charAt(i);
+                    } else {
+                        if (ant.equals(linea.charAt(i))) {
+                            cont++;
+                        } else {
+                            System.out.print(cont + "" + ant);
+                            cont = 1;
+                            ant = linea.charAt(i);
+                        }
+                    }
+                }
+                System.out.print(cont + "" + ant);
+                System.out.print(1 + "" + '\n');
+                ant = null;
+            }
+        }else{
+            while ((linea = br.readLine()) != null) {
+                if (color ==-1){
+                    cont=1;
+                    color=Integer.parseInt(linea);
+                }else{
+                    if(color==Integer.parseInt(linea)){
+                        cont++;
+                    }else {
+                        System.out.println(cont+" "+color);
+                        cont=1;
+                        color=Integer.parseInt(linea);
                     }
                 }
             }
-            if(!linea.matches("[0-9]") && linea.length() > 2){
-                System.out.print(1+""+'\n');
-            }
+            System.out.print(cont+" "+color);
         }
-        System.out.print(cont+""+ant);
+
         try {
           archivoSalida.close();
         }catch (Exception e) {
