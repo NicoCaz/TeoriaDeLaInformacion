@@ -1,0 +1,5 @@
+Rendimiento -> 0.9923149988321446
+Redundancia -> 0.007685001167855421
+Longitud media expresada en Bits->4.544344995931652
+Entropia -> 4.50942169933078
+La taza de comprecion es de -> 1.810681399631676

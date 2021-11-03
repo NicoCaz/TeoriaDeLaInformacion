@@ -7,18 +7,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-import static Utilidades.Calculos.logbase;
+import static Utilidades.Calculos.*;
 
 
-public class Huffman implements ICodificadores{
+public class Huffman implements ICodificadores, IInforme{
     private Double entropia=0.0;
     private Double longMedia=0.0;
+    private String tipoArch;
+    private int cantPal;
     private HashMap<Character, String>tabla=new HashMap<>();
     private NodoHuffman arbolDeHuffman=null;
     private ArrayList<NodoHuffman> nodosDeHuffman=new ArrayList<>();
     private Palabra[] vecPalabras;
     private int cantidadDeByts=0;
-    public Huffman(Palabra[] vecPalabra,int cantPal){
+
+    public Huffman(Palabra[] vecPalabra,int cantPal,String tipoArch){
+        this.tipoArch=tipoArch;
+        this.cantPal=cantPal;
         this.vecPalabras=vecPalabra;
         for(Palabra palabra: vecPalabra){
             nodosDeHuffman.add(new NodoHuffman(palabra.palabra,palabra.repeticiones));
@@ -91,8 +96,17 @@ public class Huffman implements ICodificadores{
         archivoSalida.close();
     }
 
-
-
+    @Override
+    public void informe() {
+        System.out.println("Rendimiento -> "+rendimiento(getEntropia(),getLongMedia()));
+        System.out.println("Redundancia -> "+redundancia(getEntropia(),getLongMedia()));
+        System.out.println("Longitud media expresada en Bits->"+ getLongMedia());
+        System.out.println("Entropia -> "+getEntropia());
+        if(tipoArch.equals("NUM"))
+            System.out.println("La taza de comprecion es de -> "+(this.cantPal*32)/(double)this.tamanioEnByts() );// si es de tipo num
+        else
+            System.out.println("La taza de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());// si es string
+    }
 
 
     class NodoHuffman implements Comparable<NodoHuffman>{

@@ -3,7 +3,7 @@ package modelo.algoritmos;
 import java.io.*;
 
 
-public class Rlc implements ICodificadores{
+public class Rlc implements ICodificadores, IInforme{
     private File archivo = null;
     private Boolean esImagen;
     private int tamanioEnBits =0;
@@ -93,5 +93,10 @@ public class Rlc implements ICodificadores{
         }catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void informe() {
+
     }
 }

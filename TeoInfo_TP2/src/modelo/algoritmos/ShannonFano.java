@@ -10,7 +10,7 @@ import java.util.List;
 
 import static Utilidades.Calculos.logbase;
 
-public class ShannonFano implements ICodificadores {
+public class ShannonFano implements ICodificadores, IInforme {
 
     HashMap<Character, String> tabla = new HashMap<Character, String>();
     private Double entropia=0.0;
@@ -124,5 +124,10 @@ public class ShannonFano implements ICodificadores {
 
     public Double getLongMedia() {
         return longMedia;
+    }
+
+    @Override
+    public void informe() {
+
     }
 }

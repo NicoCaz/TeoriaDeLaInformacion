@@ -13,7 +13,7 @@ public class LeeArch {
     private FileReader fr = null;
     private BufferedReader br = null;
 
-    private int cantidadPalabras=0,cantidadTotalDeSimbolos=0;
+    private int cantidadUnicaDePalabras =0,cantidadTotalDeSimbolos=0;
 
 
     public void lee(String nombreArch) throws IOException {
@@ -28,7 +28,7 @@ public class LeeArch {
                 cantidadTotalDeSimbolos++;
                 if(palabras.get(linea.charAt(i))==null){
                     palabras.put(linea.charAt(i),1);
-                    cantidadPalabras++;
+                    cantidadUnicaDePalabras++;
                 }else{
                     int contaux;
                     contaux=palabras.get(linea.charAt(i));
@@ -39,7 +39,7 @@ public class LeeArch {
             cantidadTotalDeSimbolos++;
             if(palabras.get('\n')==null){
                 palabras.put('\n',1);
-                cantidadPalabras++;
+                cantidadUnicaDePalabras++;
             }else{
                 int contaux;
                 contaux=palabras.get('\n');
@@ -52,7 +52,7 @@ public class LeeArch {
     }
 
     private void crearvec(){
-        this.vectorPalabras=new Palabra[cantidadPalabras];
+        this.vectorPalabras=new Palabra[cantidadUnicaDePalabras];
         int i=0;
         Iterator<Map.Entry<Character, Integer>> it = palabras.entrySet().iterator();
         while (it.hasNext()){
@@ -74,8 +74,8 @@ public class LeeArch {
     }
 
     public void muestra(){
-        System.out.println("cantidad de palabras: "+cantidadPalabras+"\n");
-        for(int i=0;i<cantidadPalabras;i++){
+        System.out.println("cantidad de palabras: "+ cantidadUnicaDePalabras +"\n");
+        for(int i = 0; i< cantidadUnicaDePalabras; i++){
             System.out.println(vectorPalabras[i]+"\n");
         }
     }
