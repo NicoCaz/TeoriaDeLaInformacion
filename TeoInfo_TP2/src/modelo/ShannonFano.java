@@ -45,8 +45,7 @@ public class ShannonFano {
                 this.entropia+= prob*(logbase(1/prob,2));
             }
         }
-        System.out.println("Tabla de Shannon");
-        muestroTabla(palabra);
+
         
     }
 

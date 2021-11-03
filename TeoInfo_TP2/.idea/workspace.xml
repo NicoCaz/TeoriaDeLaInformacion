@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6bc70de-542f-4375-8bb6-d9d067dd1958" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/archivosSalida/Argentina.Fan" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archivosSalida/Argentina.Huf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/archivosSalida/Argentina.RLC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/archivosSalida/imagen.RLC" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Argentina.txtrlc.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archivosSalida/Argentina.txtHuffman.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archivosSalida/Argentina.txtShannonFano.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archivosSalida/Argentina.txtrlc.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilidades/Calculos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilidades/Calculos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Huffman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Huffman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archivosEntrada/imagen.raw" beforeDir="false" afterPath="$PROJECT_DIR$/archivosEntrada/imagen.raw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/Rlc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Rlc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/ShannonFano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/ShannonFano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/modelo/ShannonFano.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modelo/ShannonFano.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
