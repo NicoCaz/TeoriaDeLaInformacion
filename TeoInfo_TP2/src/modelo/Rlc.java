@@ -7,7 +7,7 @@ public class Rlc {
     private final Double entropia = 0.0;
     private final Double longMedia = 0.0;
     private File archivo = null;
-
+    private int cantidad=0;
     private FileReader fr = null;
     private BufferedReader br = null;
     PrintStream archivoSalida = null;
@@ -52,9 +52,11 @@ public class Rlc {
                 System.out.print(cont + "" + ant);
                 System.out.print(1 + "" + '\n');
                 ant = null;
+                cantidad+=linea.length();
             }
         }else{
             while ((linea = br.readLine()) != null) {
+                cantidad++;
                 if (color ==-1){
                     cont=1;
                     color=Integer.parseInt(linea);
@@ -62,13 +64,13 @@ public class Rlc {
                     if(color==Integer.parseInt(linea)){
                         cont++;
                     }else {
-                        System.out.println(cont+" "+color);
+                        System.out.print(cont+""+color);
                         cont=1;
                         color=Integer.parseInt(linea);
                     }
                 }
             }
-            System.out.print(cont+" "+color);
+            System.out.print(cont+""+color);
         }
 
         try {

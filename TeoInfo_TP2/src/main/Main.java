@@ -22,6 +22,8 @@ public class Main {
         codificacionRlc.comprimir("Argentina.txt");
         codificacionHuffman.comprimir("Argentina.txt");
         codificaShannonFano.comprimir("Argentina.txt");
+
+
      /*   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         lectura.lee("Aleman.txt");
         codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras());

@@ -23,6 +23,7 @@ public class ShannonFano {
     HashMap<Character, String> tabla = new HashMap<Character, String>();
     private Double entropia=0.0;
     private Double longMedia=0.0;
+    private int cantidadDeByts=0;
     
     public ShannonFano(Palabra[] palabra,int cantPal) {
 
@@ -116,12 +117,16 @@ public class ShannonFano {
         while((linea=br.readLine() )!= null){
             for(int i=0;i<linea.length();i++){
                 System.out.print(tabla.get(linea.charAt(i)));
+                this.cantidadDeByts+=tabla.get(linea.charAt(i)).length();
             }
             System.out.print(tabla.get('\n'));
         }
         archivoSalida.close();
 
 
+    }
+    public int tamanioEnByts(){
+        return this.cantidadDeByts;
     }
 
 

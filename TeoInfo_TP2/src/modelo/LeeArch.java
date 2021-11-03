@@ -18,14 +18,13 @@ public class LeeArch {
 
     public void lee(String nombreArch) throws IOException {
         String ruta;
-        String aux;
+        Boolean esImagen=nombreArch.contains(".raw");
         ruta = System.getProperty("user.dir");
         archivo = new File(ruta+"/archivosEntrada" + "/"+nombreArch);
         fr = new FileReader(archivo);
         br=new BufferedReader(fr);
         String linea;
         while ((linea=br.readLine() )!= null){
-
             for(int i=0;i<linea.length();i++){
                 cantidadTotalDeSimbolos++;
                 if(palabras.get(linea.charAt(i))==null){
@@ -48,8 +47,9 @@ public class LeeArch {
                 palabras.remove('\n');
                 palabras.put('\n',contaux+1);
             }
+
+        }
         this.crearvec();
-    }
     }
 
     private void crearvec(){

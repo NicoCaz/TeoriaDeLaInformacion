@@ -15,6 +15,7 @@ public class Huffman {
     private NodoHuffman arbolDeHuffman=null;
     private ArrayList<NodoHuffman> nodosDeHuffman=new ArrayList<>();
     private Palabra[] vecPalabras;
+    private int cantidadDeByts=0;
     public Huffman(Palabra[] vecPalabra,int cantPal){
         this.vecPalabras=vecPalabra;
         for(Palabra palabra: vecPalabra){
@@ -80,6 +81,7 @@ public class Huffman {
         while((linea=br.readLine() )!= null){
             for(int i=0;i<linea.length();i++){
                 System.out.print(tabla.get(linea.charAt(i)));
+                this.cantidadDeByts+=tabla.get(linea.charAt(i)).length();
             }
             System.out.print(tabla.get('\n'));
 
@@ -93,9 +95,11 @@ public class Huffman {
             System.out.println(tabla.get(palabra.palabra));
         }
 
-}
+    }
 
-
+    public int tamanioEnByts(){
+        return this.cantidadDeByts;
+    }
 
 
     class NodoHuffman implements Comparable<NodoHuffman>{
