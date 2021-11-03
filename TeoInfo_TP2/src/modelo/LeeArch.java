@@ -14,11 +14,10 @@ public class LeeArch {
     private BufferedReader br = null;
 
     private int cantidadPalabras=0,cantidadTotalDeSimbolos=0;
-    public static Double entropia;
+
 
     public void lee(String nombreArch) throws IOException {
         String ruta;
-        Boolean esImagen=nombreArch.contains(".raw");
         ruta = System.getProperty("user.dir");
         archivo = new File(ruta+"/archivosEntrada" + "/"+nombreArch);
         fr = new FileReader(archivo);

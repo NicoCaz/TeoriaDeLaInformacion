@@ -1,4 +1,4 @@
-package modelo;
+package modelo.algoritmos;
 
 public class Simbolo implements Comparable<Simbolo> {
     private Character c;

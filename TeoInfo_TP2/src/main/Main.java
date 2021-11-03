@@ -1,15 +1,11 @@
 package main;
 
-import modelo.Huffman;
+import modelo.algoritmos.Huffman;
 import modelo.LeeArch;
-import modelo.RLC2;
-import modelo.Rlc;
-import modelo.ShannonFano;
+import modelo.algoritmos.Rlc;
+import modelo.algoritmos.ShannonFano;
 
 import java.io.IOException;
-import java.security.spec.RSAOtherPrimeInfo;
-
-import static Utilidades.Calculos.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {

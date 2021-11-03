@@ -1,4 +1,6 @@
-package modelo;
+package modelo.algoritmos;
+
+import modelo.Palabra;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,37 +10,26 @@ import java.util.List;
 
 import static Utilidades.Calculos.logbase;
 
-public class ShannonFano {
-    public Double getEntropia() {
-        return entropia;
-    }
-
-
-    public Double getLongMedia() {
-        return longMedia;
-    }
-
-
+public class ShannonFano implements ICodificadores {
 
     HashMap<Character, String> tabla = new HashMap<Character, String>();
     private Double entropia=0.0;
     private Double longMedia=0.0;
     private int cantidadDeByts=0;
     
-    public ShannonFano(Palabra[] palabra,int cantPal) {
+    public ShannonFano(Palabra[] palabra, int cantPal) {
 
         Arrays.sort(palabra);
         ArrayList<Simbolo> simbolos = new ArrayList<Simbolo>();
-        int indice = 0;
+
         for (Palabra o : palabra) {
 
             simbolos.add(new Simbolo(o.palabra, o.repeticiones));
             this.tabla.put(o.palabra, "");
-            indice++;
+
         }
         creoTabla(this.tabla, simbolos);
         double prob;
-        
         for(int i=0;i<tabla.size();i++) {
             if(palabra[i].repeticiones!=0) {
                 prob= palabra[i].repeticiones / (cantPal+0.0);
@@ -46,8 +37,6 @@ public class ShannonFano {
                 this.entropia+= prob*(logbase(1/prob,2));
             }
         }
-
-        
     }
 
     public HashMap<Character, String> getTablaCodificada() {
@@ -98,11 +87,7 @@ public class ShannonFano {
 
         }
     }
-    private void muestroTabla(Palabra palabra[]){
-        for(int i=0;i<this.tabla.size();i++)
-        	System.out.println(this.tabla.get(palabra[i].palabra));
 
-}
 
     public void comprimir(String nombreArch) throws IOException {
         int p=nombreArch.lastIndexOf('.');
@@ -122,12 +107,22 @@ public class ShannonFano {
             System.out.print(tabla.get('\n'));
         }
         archivoSalida.close();
-
+    }
+    private void muestroTabla(Palabra palabra[]){
+        for(int i=0;i<this.tabla.size();i++)
+            System.out.println(this.tabla.get(palabra[i].palabra));
 
     }
+
     public int tamanioEnByts(){
         return this.cantidadDeByts;
     }
 
+    public Double getEntropia() {
+        return entropia;
+    }
 
+    public Double getLongMedia() {
+        return longMedia;
+    }
 }

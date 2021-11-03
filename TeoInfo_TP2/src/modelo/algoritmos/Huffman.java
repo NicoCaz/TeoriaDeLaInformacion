@@ -1,4 +1,6 @@
-package modelo;
+package modelo.algoritmos;
+
+import modelo.Palabra;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,7 +10,7 @@ import java.util.HashMap;
 import static Utilidades.Calculos.logbase;
 
 
-public class Huffman {
+public class Huffman implements ICodificadores{
     private Double entropia=0.0;
     private Double longMedia=0.0;
     private HashMap<Character, String>tabla=new HashMap<>();
@@ -87,19 +89,10 @@ public class Huffman {
 
         }
         archivoSalida.close();
-
-
-    }
-    public void muestroTabla(){
-        for(Palabra palabra : vecPalabras){
-            System.out.println(tabla.get(palabra.palabra));
-        }
-
     }
 
-    public int tamanioEnByts(){
-        return this.cantidadDeByts;
-    }
+
+
 
 
     class NodoHuffman implements Comparable<NodoHuffman>{
@@ -138,6 +131,7 @@ public class Huffman {
             return this.valor+" ";
         }
     }
+
     public Double getEntropia() {
         return entropia;
     }
@@ -147,5 +141,14 @@ public class Huffman {
         return longMedia;
     }
 
+    public int tamanioEnByts(){
+        return this.cantidadDeByts;
+    }
 
+    public void muestroTabla(){
+        for(Palabra palabra : vecPalabras){
+            System.out.println(tabla.get(palabra.palabra));
+        }
+
+    }
 }

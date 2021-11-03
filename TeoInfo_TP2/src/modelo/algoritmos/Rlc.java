@@ -1,23 +1,39 @@
-package modelo;
+package modelo.algoritmos;
 
 import java.io.*;
 
 
-public class Rlc {
-    private final Double entropia = 0.0;
-    private final Double longMedia = 0.0;
+public class Rlc implements ICodificadores{
     private File archivo = null;
-    private int cantidad=0;
+    private Boolean esImagen;
+    private int tamanioEnBits =0;
     private FileReader fr = null;
     private BufferedReader br = null;
     PrintStream archivoSalida = null;
+
+    @Override
+    public Double getEntropia() {
+        return null;
+    }
+
+    @Override
+    public Double getLongMedia() {
+        if(this.esImagen)
+            return 16.0;
+        return 64.0;
+    }
+
+    @Override
+    public int tamanioEnByts() {
+        return this.tamanioEnBits;
+    }
 
     public void comprimir(String nombreArch) throws IOException {
         int p = nombreArch.lastIndexOf('.');
         int cont=0,color = -1;
         Character ant = null;
         String ruta;
-        Boolean esImagen=nombreArch.contains(".raw");
+        this.esImagen=nombreArch.contains(".raw");
         ruta = System.getProperty("user.dir");
         try {
             archivoSalida = new PrintStream(new FileOutputStream(ruta + "/archivosSalida/" + nombreArch.substring(0, p) + ".RLC"));
@@ -33,7 +49,7 @@ public class Rlc {
         }
         br = new BufferedReader(fr);
         String linea = null;
-        if(!esImagen) {
+        if(!this.esImagen) {
             while ((linea = br.readLine()) != null) {
                 for (int i = 0; i < linea.length(); i++) {
                     if (ant == null) {
@@ -52,11 +68,10 @@ public class Rlc {
                 System.out.print(cont + "" + ant);
                 System.out.print(1 + "" + '\n');
                 ant = null;
-                cantidad+=linea.length();
+                tamanioEnBits +=(linea.length()+1)*8;//+1 salto de linea y *8 por el tamanio de un char
             }
         }else{
             while ((linea = br.readLine()) != null) {
-                cantidad++;
                 if (color ==-1){
                     cont=1;
                     color=Integer.parseInt(linea);
@@ -69,10 +84,10 @@ public class Rlc {
                         color=Integer.parseInt(linea);
                     }
                 }
+                tamanioEnBits+=(2*32);// 2 por la cantidad y 32 por el tamanio del unsigned int
             }
             System.out.print(cont+""+color);
         }
-
         try {
           archivoSalida.close();
         }catch (Exception e) {
@@ -80,4 +95,3 @@ public class Rlc {
         }
     }
 }
-

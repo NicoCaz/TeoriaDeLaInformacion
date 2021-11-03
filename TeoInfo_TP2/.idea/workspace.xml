@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6bc70de-542f-4375-8bb6-d9d067dd1958" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/algoritmos/ICodificadores.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archivosSalida/imagen.RLC" beforeDir="false" afterPath="$PROJECT_DIR$/archivosSalida/imagen.RLC" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilidades/Calculos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilidades/Calculos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Huffman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Huffman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Huffman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/algoritmos/Huffman.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/LeeArch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/LeeArch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Rlc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Rlc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/ShannonFano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/ShannonFano.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modelo/ShannonFano.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modelo/ShannonFano.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/RLC2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/algoritmos/RLC2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Rlc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/algoritmos/Rlc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/ShannonFano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/algoritmos/ShannonFano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Simbolo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/algoritmos/Simbolo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/modelo/ShannonFano.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/modelo/Simbolo.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +31,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -48,6 +53,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/pom.xml" />
