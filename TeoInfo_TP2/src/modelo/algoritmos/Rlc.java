@@ -1,5 +1,7 @@
 package modelo.algoritmos;
 
+import modelo.Palabra;
+
 import java.io.*;
 
 import static Utilidades.Calculos.redundancia;
@@ -15,6 +17,8 @@ public class Rlc implements ICodificadores, IInforme{
     private FileReader fr = null;
     private BufferedReader br = null;
     PrintStream archivoSalida = null;
+    private Palabra[] simbolos;
+    private int cantidadUnicaDePalabras =0,cantidadTotalDeSimbolos=0;
 
 
     public Rlc(String nombreArch){
@@ -124,7 +128,7 @@ public class Rlc implements ICodificadores, IInforme{
             System.out.println("\n----------------R.L.C----------------");
             System.out.println("Rendimiento -> "+rendimiento(getEntropia(),getLongMedia()));
             System.out.println("Redundancia -> "+redundancia(getEntropia(),getLongMedia()));
-            System.out.println("Longitud media expresada en Bits->"+ getLongMedia());
+            System.out.println("Longitud media expresada en Bits-> "+ getLongMedia());
             System.out.println("Entropia -> "+getEntropia());
             if(tipoArch.equals("NUM"))
                 System.out.println("La taza de comprecion es de -> "+(this.cantPal*32)/(double)this.tamanioEnByts() );// si es de tipo num

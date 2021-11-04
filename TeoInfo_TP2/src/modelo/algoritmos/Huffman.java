@@ -101,7 +101,7 @@ public class Huffman implements ICodificadores, IInforme{
         System.out.println("\n----------------Huffman----------------");
         System.out.println("Rendimiento -> "+rendimiento(getEntropia(),getLongMedia()));
         System.out.println("Redundancia -> "+redundancia(getEntropia(),getLongMedia()));
-        System.out.println("Longitud media expresada en Bits->"+ getLongMedia());
+        System.out.println("Longitud media expresada en Bits-> "+ getLongMedia());
         System.out.println("Entropia -> "+getEntropia());
         if(tipoArch.equals("NUM"))
             System.out.println("La taza de comprecion es de -> "+(this.cantPal*32)/(double)this.tamanioEnByts() );// si es de tipo num

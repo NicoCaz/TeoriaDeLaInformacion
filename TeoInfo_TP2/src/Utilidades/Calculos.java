@@ -1,6 +1,8 @@
 package Utilidades;
 
 
+import java.util.HashMap;
+
 public class Calculos {
 
     public static double rendimiento( double entropia, double longMedia) {
@@ -14,6 +16,8 @@ public class Calculos {
         return (Math.log10(num) / Math.log10(base));
     }
 
-
+    public static double entropia(HashMap<String,Integer> numeros,int cantidadTotal){
+            return 0.0;
+    }
 
 }

@@ -133,7 +133,7 @@ public class ShannonFano implements ICodificadores, IInforme {
         System.out.println("\n----------------Shannon Fano----------------");
         System.out.println("Rendimiento -> "+rendimiento(getEntropia(),getLongMedia()));
         System.out.println("Redundancia -> "+redundancia(getEntropia(),getLongMedia()));
-        System.out.println("Longitud media expresada en Bits->"+ getLongMedia());
+        System.out.println("Longitud media expresada en Bits-> "+ getLongMedia());
         System.out.println("Entropia -> "+getEntropia());
         if(tipoArch.equals("NUM"))
             System.out.println("La taza de comprecion es de -> "+(this.cantPal*32)/(double)this.tamanioEnByts() );// si es de tipo num
