@@ -16,10 +16,12 @@ public class ShannonFano implements ICodificadores, IInforme {
     private Double entropia=0.0;
     private Double longMedia=0.0;
     private int cantidadDeByts=0;
+    private Palabra[] palabra;
     
     public ShannonFano(Palabra[] palabra, int cantPal,double entropia) {
         this.entropia=entropia;
         this.cantPal=cantPal;
+        this.palabra=palabra;
         Arrays.sort(palabra);
         ArrayList<Simbolo> simbolos = new ArrayList<Simbolo>();
         for (Palabra o : palabra) {
@@ -97,12 +99,14 @@ public class ShannonFano implements ICodificadores, IInforme {
                 this.cantidadDeByts+=tabla.get(linea.charAt(i)).length();
             }
             System.out.print(tabla.get('\n'));
+            this.cantidadDeByts+=tabla.get('\n').length();
+
         }
         archivoSalida.close();
     }
     private void muestroTabla(Palabra palabra[]){
         for(int i=0;i<this.tabla.size();i++)
-            System.out.println(this.tabla.get(palabra[i].palabra));
+            System.out.println("Palabra: "+palabra[i].palabra+ " simbolo  "+this.tabla.get(palabra[i].palabra));
 
     }
 
@@ -126,6 +130,8 @@ public class ShannonFano implements ICodificadores, IInforme {
         System.out.println("Longitud media expresada en Bits-> "+ getLongMedia());
         System.out.println("Entropia -> "+getEntropia());
         System.out.println("La tasa de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts() );
+        System.out.println("Tabla de shannon");
+
 
     }
 }

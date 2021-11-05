@@ -4,18 +4,21 @@ Rendimiento -> 0.9923149988321446
 Redundancia -> 0.007685001167855421
 Longitud media expresada en Bits-> 4.544344995931652
 Entropia -> 4.50942169933078
-La tasa de comprecion es de -> 1.810681399631676
+La tasa de comprecion es de -> 1.7604297224709042
+tabla de huffman
+
 
 ----------------Shannon Fano----------------
 Rendimiento -> 0.989127122698113
 Redundancia -> 0.010872877301887018
 Longitud media expresada en Bits-> 4.55899104963385
 Entropia -> 4.50942169933078
-La tasa de comprecion es de -> 1.8046989720998532
+La tasa de comprecion es de -> 1.7547742280920935
+Tabla de shannon
 
 ----------------R.L.C----------------
 Rendimiento -> 0.2818388562081737
 Redundancia -> 0.7181611437918263
 Longitud media expresada en Bits-> 16.0
 Entropia -> 4.50942169933078
-La tasa de comprecion es de -> 1.0
+La tasa de comprecion es de -> 0.5301984469370147

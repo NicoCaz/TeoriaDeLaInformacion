@@ -55,6 +55,7 @@ public class Main {
         System.setOut(archivoSalida);
         codificacionHuffman.informe();
         codificaShannonFano.informe();
+
         codificacionRlc.informe();
 
 

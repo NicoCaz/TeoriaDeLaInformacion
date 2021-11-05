@@ -13,7 +13,6 @@ import static Utilidades.Calculos.*;
 public class Huffman implements ICodificadores, IInforme{
     private Double entropia=0.0;
     private Double longMedia=0.0;
-    private String tipoArch;
     private int cantPal;
     private HashMap<Character, String>tabla=new HashMap<>();
     private NodoHuffman arbolDeHuffman=null;
@@ -90,7 +89,7 @@ public class Huffman implements ICodificadores, IInforme{
                 this.cantidadDeByts+=tabla.get(linea.charAt(i)).length();
             }
             System.out.print(tabla.get('\n'));
-
+            this.cantidadDeByts+=tabla.get('\n').length();
         }
         archivoSalida.close();
     }
@@ -103,6 +102,8 @@ public class Huffman implements ICodificadores, IInforme{
         System.out.println("Longitud media expresada en Bits-> "+ getLongMedia());
         System.out.println("Entropia -> "+getEntropia());
         System.out.println("La tasa de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());// si es string
+        System.out.println("tabla de huffman\n");
+
     }
 
 
