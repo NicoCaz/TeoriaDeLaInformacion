@@ -4,18 +4,18 @@ Rendimiento -> 0.9099819051093314
 Redundancia -> 0.09001809489066859
 Longitud media expresada en Bits-> 1.687915776624962
 Entropia -> 1.5359728140772795
-La taza de comprecion es de -> 6.734397677793904
+La tasa de comprecion es de -> 6.734397677793904
 
 ----------------Shannon Fano----------------
 Rendimiento -> 0.9099819051093314
 Redundancia -> 0.09001809489066859
 Longitud media expresada en Bits-> 1.687915776624962
 Entropia -> 1.5359728140772795
-La taza de comprecion es de -> 6.734397677793904
+La tasa de comprecion es de -> 6.734397677793904
 
 ----------------R.L.C----------------
 Rendimiento -> 0.06474865638440871
 Redundancia -> 0.9352513436155913
 Longitud media expresada en Bits-> 16.0
 Entropia -> 1.0359785021505394
-La taza de comprecion es de -> 9.71653076352854
+La tasa de comprecion es de -> 9.71653076352854

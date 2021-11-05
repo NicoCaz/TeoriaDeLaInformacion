@@ -107,7 +107,7 @@ public class Rlc implements ICodificadores, IInforme{
         }catch (Exception e) {
             e.printStackTrace();
         }
-        this.entropia= Calculos.entropia(this.numeros,cantPal);
+        this.entropia = Calculos.entropia(this.numeros,cantPal);
     }
 
     @Override
@@ -134,7 +134,7 @@ public class Rlc implements ICodificadores, IInforme{
             System.out.println("Redundancia -> "+redundancia(getEntropia(),getLongMedia()));
             System.out.println("Longitud media expresada en Bits-> "+ getLongMedia());
             System.out.println("Entropia -> "+getEntropia());
-            System.out.println("La taza de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());
+            System.out.println("La tasa de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());
         }
 
 }
