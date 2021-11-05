@@ -11,42 +11,32 @@ import java.util.List;
 import static Utilidades.Calculos.*;
 
 public class ShannonFano implements ICodificadores, IInforme {
-    private String tipoArch;
     private int cantPal;
     HashMap<Character, String> tabla = new HashMap<Character, String>();
     private Double entropia=0.0;
     private Double longMedia=0.0;
     private int cantidadDeByts=0;
     
-    public ShannonFano(Palabra[] palabra, int cantPal,String tipoArch) {
-        this.tipoArch=tipoArch;
+    public ShannonFano(Palabra[] palabra, int cantPal,double entropia) {
+        this.entropia=entropia;
         this.cantPal=cantPal;
         Arrays.sort(palabra);
         ArrayList<Simbolo> simbolos = new ArrayList<Simbolo>();
-
         for (Palabra o : palabra) {
-
             simbolos.add(new Simbolo(o.palabra, o.repeticiones));
             this.tabla.put(o.palabra, "");
-
         }
         creoTabla(this.tabla, simbolos);
         double prob;
         for(int i=0;i<tabla.size();i++) {
             if(palabra[i].repeticiones!=0) {
                 prob= palabra[i].repeticiones / (cantPal+0.0);
-                longMedia+=prob*tabla.get(palabra[i].palabra).length();
-                this.entropia+= prob*(logbase(1/prob,2));
+                this.longMedia+=prob*tabla.get(palabra[i].palabra).length();
             }
         }
     }
 
-    public HashMap<Character, String> getTablaCodificada() {
-        return this.tabla;
-    }
-
     private void creoTabla(HashMap<Character, String> tabla, List<Simbolo> simbolos) {
-
         if (simbolos.size() > 1) {
             int suma = 0;
             for (Simbolo s : simbolos) {
@@ -102,7 +92,6 @@ public class ShannonFano implements ICodificadores, IInforme {
         BufferedReader br = new BufferedReader(fr);
         String linea;
         while((linea=br.readLine() )!= null){
-
             for(int i=0;i<linea.length();i++){
                 System.out.print(tabla.get(linea.charAt(i)));
                 this.cantidadDeByts+=tabla.get(linea.charAt(i)).length();

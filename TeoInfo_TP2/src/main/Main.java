@@ -16,9 +16,9 @@ public class Main {
         PrintStream archivoSalida= new PrintStream(new FileOutputStream(ruta+"/informes/informe_Argentina.txt"));
 
         lectura.lee("Argentina.txt");
-        Rlc codificacionRlc =new Rlc("Argentina.txt", lectura.getTablaNumeros());
-        ShannonFano codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras(),"TEXT");
-        Huffman codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras(),"TEXT");
+        Rlc codificacionRlc =new Rlc("Argentina.txt", lectura.getTablaNumeros(), lectura.getEntropia());
+        ShannonFano codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras(), lectura.getEntropia());
+        Huffman codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras(), lectura.getEntropia());
 
         codificacionRlc.comprimir("Argentina.txt");
         codificacionHuffman.comprimir("Argentina.txt");
@@ -30,10 +30,10 @@ public class Main {
 
         lectura=new LeeArch();
         lectura.lee("Aleman.txt");
-        codificacionRlc =new Rlc("Aleman.txt", lectura.getTablaNumeros());
+        codificacionRlc =new Rlc("Aleman.txt", lectura.getTablaNumeros(), lectura.getEntropia());
         archivoSalida= new PrintStream(new FileOutputStream(ruta+"/informes/informe_Aleman.txt"));
-        codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras(),"TEXT");
-        codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras(),"TEXT");
+        codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras(), lectura.getEntropia());
+        codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras(), lectura.getEntropia());
         codificacionRlc.comprimir("Aleman.txt");
         codificacionHuffman.comprimir("Aleman.txt");
         codificaShannonFano.comprimir("Aleman.txt");
@@ -44,10 +44,10 @@ public class Main {
 
         lectura=new LeeArch();
         lectura.lee("imagen.raw");
-        codificacionRlc =new Rlc("imagen.raw", lectura.getTablaNumeros());
+        codificacionRlc =new Rlc("imagen.raw", lectura.getTablaNumeros(), lectura.getEntropia());
         archivoSalida= new PrintStream(new FileOutputStream(ruta+"/informes/informe_imagen.txt"));
-        codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras(),"NUM");
-        codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras(),"NUM");
+        codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras(), lectura.getEntropia());
+        codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras(), lectura.getEntropia());
 
         codificacionRlc.comprimir("imagen.raw");
         codificacionHuffman.comprimir("imagen.raw");
@@ -56,6 +56,7 @@ public class Main {
         codificacionHuffman.informe();
         codificaShannonFano.informe();
         codificacionRlc.informe();
+
 
     }
 }

@@ -3,6 +3,8 @@ package modelo;
 import java.io.*;
 import java.util.*;
 
+import static Utilidades.Calculos.logbase;
+
 
 public class LeeArch {
 
@@ -13,6 +15,7 @@ public class LeeArch {
     private Boolean esImagen;
     private FileReader fr = null;
     private BufferedReader br = null;
+    private double entropia;
 
     private int cantidadUnicaDePalabras =0, cantidadTotalDePalabras =0;
     private int cantidadUnicaDeNumeros =0, cantidadTotalDeNumeros =0;
@@ -69,11 +72,16 @@ public class LeeArch {
         this.crearvec();
     }
 
+
+    public double getEntropia(){
+        return this.entropia;
+    }
     public HashMap<String, Integer> getTablaNumeros() {
         return numeros;
     }
 
     private void crearvec(){
+        double prob;
         this.vectorPalabras=new Palabra[cantidadUnicaDePalabras];
         int i=0;
         Iterator<Map.Entry<Character, Integer>> it = palabras.entrySet().iterator();
@@ -83,10 +91,14 @@ public class LeeArch {
             i++;
         }
         Arrays.sort(this.vectorPalabras);
+        for(Palabra palabra: this.vectorPalabras){
+            prob= palabra.repeticiones / (cantidadTotalDePalabras+0.0);
+            this.entropia+= prob*(logbase(1/prob,2));
+        }
     }
 
 
-        public Palabra[] vectorPalabras(){
+    public Palabra[] vectorPalabras(){
                 return this.vectorPalabras;
         }
 
@@ -100,8 +112,14 @@ public class LeeArch {
         for(int i = 0; i< cantidadUnicaDePalabras; i++){
             System.out.println(vectorPalabras[i]+"\n");
         }
+
     }
 
-
+    public void muestra2(){
+        System.out.println("cantidad de numeros: "+ cantidadUnicaDeNumeros +"\n");
+        for (String numero: this.numeros.keySet()){
+            System.out.println("Numero "+ numero+" repeticiones "+ this.numeros.get(numero));
+        }
+    }
 
 }

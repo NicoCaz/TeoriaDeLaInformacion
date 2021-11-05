@@ -14,8 +14,8 @@ Entropia -> 4.609233847768913
 La taza de comprecion es de -> 1.759939645416824
 
 ----------------R.L.C----------------
-Rendimiento -> 0.006649571761559241
-Redundancia -> 0.9933504282384408
-Longitud media expresada en Bits-> 20.0
-Entropia -> 0.1329914352311848
+Rendimiento -> 0.2880771154855571
+Redundancia -> 0.711922884514443
+Longitud media expresada en Bits-> 16.0
+Entropia -> 4.609233847768913
 La taza de comprecion es de -> 1.0

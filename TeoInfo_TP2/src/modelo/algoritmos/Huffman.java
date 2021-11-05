@@ -21,8 +21,8 @@ public class Huffman implements ICodificadores, IInforme{
     private Palabra[] vecPalabras;
     private int cantidadDeByts=0;
 
-    public Huffman(Palabra[] vecPalabra,int cantPal,String tipoArch){
-        this.tipoArch=tipoArch;
+    public Huffman(Palabra[] vecPalabra,int cantPal,Double entropia){
+        this.entropia=entropia;
         this.cantPal=cantPal;
         this.vecPalabras=vecPalabra;
         for(Palabra palabra: vecPalabra){
@@ -36,7 +36,6 @@ public class Huffman implements ICodificadores, IInforme{
             if(vecPalabra[i].repeticiones!=0) {
                 prob= vecPalabra[i].repeticiones / (cantPal+0.0);
                 longMedia+=prob*tabla.get(vecPalabra[i].palabra).length();
-                this.entropia+= prob*(logbase(1/prob,2));
             }
         }
 

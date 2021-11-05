@@ -16,16 +16,6 @@ public class Calculos {
         return (Math.log10(num) / Math.log10(base));
     }
 
-    public static double entropia(HashMap<String,Integer> numeros,int cantidadTotal){
 
-        double res = 0,prob;
-
-        for(Integer valor: numeros.values()){
-                prob=valor/(cantidadTotal+0.0);
-                res+=prob*(logbase(1/prob,2));
-        }
-
-        return res;
-    }
 
 }

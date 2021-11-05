@@ -23,7 +23,8 @@ public class Rlc implements ICodificadores, IInforme{
     private double entropia;
     HashMap<String,Integer> numeros;
 
-    public Rlc(String nombreArch, HashMap<String,Integer> numeros){
+    public Rlc(String nombreArch, HashMap<String,Integer> numeros,double entropia){
+        this.entropia=entropia;
         this.numeros=numeros;
         if(nombreArch.contains(".txt"))
             this.tipoArch="TEXT";
@@ -107,7 +108,6 @@ public class Rlc implements ICodificadores, IInforme{
         }catch (Exception e) {
             e.printStackTrace();
         }
-        this.entropia= Calculos.entropia(this.numeros,cantPal);
     }
 
     @Override
@@ -117,7 +117,7 @@ public class Rlc implements ICodificadores, IInforme{
 
     @Override
     public double getLongMedia() {
-        if(this.esImagen)
+        if(!this.esImagen)
             return 16.0;
         return 20;
     }
