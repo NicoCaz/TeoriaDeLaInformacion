@@ -18,25 +18,4 @@ Rendimiento -> 0.06474865638440871
 Redundancia -> 0.9352513436155913
 Longitud media expresada en Bits-> 16.0
 Entropia -> 1.0359785021505394
-La taza de comprecion es de -> 0.4
-cantidad de palabras: 9
-
-palabra=5,repeticiones=146
-
-palabra=3,repeticiones=224
-
-palabra=2,repeticiones=255
-
-palabra=1,repeticiones=276
-
-palabra=4,repeticiones=1884
-
-palabra=7,repeticiones=4570
-
-palabra=0,repeticiones=5333
-
-palabra=6,repeticiones=52854
-
-palabra=
-,repeticiones=65538
-
+La taza de comprecion es de -> 9.71653076352854

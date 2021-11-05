@@ -96,9 +96,9 @@ public class Rlc implements ICodificadores, IInforme{
                         System.out.print(cont+""+color);
                         cont=1;
                         color=Integer.parseInt(linea);
+                        tamanioEnBits+=(12+8);// 12 por la cantidad y 8 por el tamanio del numero (se eligio 12 por la cantidad de repeticiones del numero 6 es alta
                     }
                 }
-                tamanioEnBits+=(12+8);// 12 por la cantidad y 8 por el tamanio del numero (se eligio 12 por la cantidad de repeticiones del numero 6 es alta
             }
             System.out.print(cont+""+color);
         }
