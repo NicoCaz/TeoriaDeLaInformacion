@@ -79,6 +79,8 @@ public class Rlc implements ICodificadores, IInforme{
                 ant = null;
             }
         }else{
+        	linea = br.readLine();
+        	linea = br.readLine();//salteo las dos lineas de resolucion
             while ((linea = br.readLine()) != null) {
                 this.cantPal++;
                 if (color ==-1){
