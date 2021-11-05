@@ -85,6 +85,8 @@ public class Rlc implements ICodificadores, IInforme{
                 tamanioEnBits +=(linea.length()+1)*8;//+1 salto de linea y *8 por el tamanio de un char
             }
         }else{
+        	linea = br.readLine();
+        	linea = br.readLine();//salteo las dos lineas de resolucion
             while ((linea = br.readLine()) != null) {
                 this.cantPal++;
                 if (color ==-1){
