@@ -1,8 +1,10 @@
 package modelo.algoritmos;
 
+import Utilidades.Calculos;
 import modelo.Palabra;
 
 import java.io.*;
+import java.util.HashMap;
 
 import static Utilidades.Calculos.redundancia;
 import static Utilidades.Calculos.rendimiento;
@@ -18,10 +20,11 @@ public class Rlc implements ICodificadores, IInforme{
     private BufferedReader br = null;
     PrintStream archivoSalida = null;
     private Palabra[] simbolos;
-    private int cantidadUnicaDePalabras =0,cantidadTotalDeSimbolos=0;
+    private double entropia;
+    HashMap<String,Integer> numeros;
 
-
-    public Rlc(String nombreArch){
+    public Rlc(String nombreArch, HashMap<String,Integer> numeros){
+        this.numeros=numeros;
         if(nombreArch.contains(".txt"))
             this.tipoArch="TEXT";
         else {
@@ -95,7 +98,7 @@ public class Rlc implements ICodificadores, IInforme{
                         color=Integer.parseInt(linea);
                     }
                 }
-                tamanioEnBits+=(2*32);// 2 por la cantidad y 32 por el tamanio del unsigned int
+                tamanioEnBits+=(12+8);// 12 por la cantidad y 8 por el tamanio del numero (se eligio 12 por la cantidad de repeticiones del numero 6 es alta
             }
             System.out.print(cont+""+color);
         }
@@ -104,18 +107,19 @@ public class Rlc implements ICodificadores, IInforme{
         }catch (Exception e) {
             e.printStackTrace();
         }
+        this.entropia= Calculos.entropia(this.numeros,cantPal);
     }
 
     @Override
     public Double getEntropia() {
-        return 2.0;
+        return this.entropia;
     }
 
     @Override
-    public Double getLongMedia() {
+    public double getLongMedia() {
         if(this.esImagen)
             return 16.0;
-        return 64.0;
+        return 20;
     }
 
     @Override
@@ -130,10 +134,7 @@ public class Rlc implements ICodificadores, IInforme{
             System.out.println("Redundancia -> "+redundancia(getEntropia(),getLongMedia()));
             System.out.println("Longitud media expresada en Bits-> "+ getLongMedia());
             System.out.println("Entropia -> "+getEntropia());
-            if(tipoArch.equals("NUM"))
-                System.out.println("La taza de comprecion es de -> "+(this.cantPal*32)/(double)this.tamanioEnByts() );// si es de tipo num
-            else
-                System.out.println("La taza de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());// si es string
+            System.out.println("La taza de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());
         }
 
 }

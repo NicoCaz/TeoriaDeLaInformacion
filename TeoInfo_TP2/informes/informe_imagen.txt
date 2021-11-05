@@ -1,21 +1,42 @@
 
 ----------------Huffman----------------
-Rendimiento -> 0.9508534735937084
-Redundancia -> 0.04914652640629158
-Longitud media expresada en Bits->1.9943997071742314
-Entropia -> 1.8963818893008928
-La taza de comprecion es de -> 26.967068491122436
+Rendimiento -> 0.9099819051093314
+Redundancia -> 0.09001809489066859
+Longitud media expresada en Bits-> 1.687915776624962
+Entropia -> 1.5359728140772795
+La taza de comprecion es de -> 6.734397677793904
 
 ----------------Shannon Fano----------------
-Rendimiento -> 0.9506929513562485
-Redundancia -> 0.04930704864375146
-Longitud media expresada en Bits->1.994736456808199
-Entropia -> 1.8963818893008928
-La taza de comprecion es de -> 26.967068491122436
+Rendimiento -> 0.9099819051093314
+Redundancia -> 0.09001809489066859
+Longitud media expresada en Bits-> 1.687915776624962
+Entropia -> 1.5359728140772795
+La taza de comprecion es de -> 6.734397677793904
 
 ----------------R.L.C----------------
-Rendimiento -> 0.125
-Redundancia -> 0.875
-Longitud media expresada en Bits->16.0
-Entropia -> 2.0
-La taza de comprecion es de -> 0.5
+Rendimiento -> 0.06474865638440871
+Redundancia -> 0.9352513436155913
+Longitud media expresada en Bits-> 16.0
+Entropia -> 1.0359785021505394
+La taza de comprecion es de -> 0.4
+cantidad de palabras: 9
+
+palabra=5,repeticiones=146
+
+palabra=3,repeticiones=224
+
+palabra=2,repeticiones=255
+
+palabra=1,repeticiones=276
+
+palabra=4,repeticiones=1884
+
+palabra=7,repeticiones=4570
+
+palabra=0,repeticiones=5333
+
+palabra=6,repeticiones=52854
+
+palabra=
+,repeticiones=65538
+

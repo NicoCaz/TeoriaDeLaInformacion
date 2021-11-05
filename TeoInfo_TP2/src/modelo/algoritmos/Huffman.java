@@ -103,10 +103,7 @@ public class Huffman implements ICodificadores, IInforme{
         System.out.println("Redundancia -> "+redundancia(getEntropia(),getLongMedia()));
         System.out.println("Longitud media expresada en Bits-> "+ getLongMedia());
         System.out.println("Entropia -> "+getEntropia());
-        if(tipoArch.equals("NUM"))
-            System.out.println("La taza de comprecion es de -> "+(this.cantPal*32)/(double)this.tamanioEnByts() );// si es de tipo num
-        else
-            System.out.println("La taza de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());// si es string
+        System.out.println("La taza de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());// si es string
     }
 
 
@@ -152,7 +149,7 @@ public class Huffman implements ICodificadores, IInforme{
     }
 
 
-    public Double getLongMedia() {
+    public double getLongMedia() {
         return longMedia;
     }
 

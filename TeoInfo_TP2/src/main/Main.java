@@ -16,7 +16,7 @@ public class Main {
         PrintStream archivoSalida= new PrintStream(new FileOutputStream(ruta+"/informes/informe_Argentina.txt"));
 
         lectura.lee("Argentina.txt");
-        Rlc codificacionRlc =new Rlc("Argentina.txt");
+        Rlc codificacionRlc =new Rlc("Argentina.txt", lectura.getTablaNumeros());
         ShannonFano codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras(),"TEXT");
         Huffman codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras(),"TEXT");
 
@@ -28,8 +28,9 @@ public class Main {
         codificaShannonFano.informe();
         codificacionRlc.informe();
 
+        lectura=new LeeArch();
         lectura.lee("Aleman.txt");
-        codificacionRlc =new Rlc("Aleman.txt");
+        codificacionRlc =new Rlc("Aleman.txt", lectura.getTablaNumeros());
         archivoSalida= new PrintStream(new FileOutputStream(ruta+"/informes/informe_Aleman.txt"));
         codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras(),"TEXT");
         codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras(),"TEXT");
@@ -41,12 +42,13 @@ public class Main {
         codificaShannonFano.informe();
         codificacionRlc.informe();
 
-
+        lectura=new LeeArch();
         lectura.lee("imagen.raw");
-        codificacionRlc =new Rlc("imagen.raw");
+        codificacionRlc =new Rlc("imagen.raw", lectura.getTablaNumeros());
         archivoSalida= new PrintStream(new FileOutputStream(ruta+"/informes/informe_imagen.txt"));
         codificaShannonFano =new ShannonFano(lectura.vectorPalabras(),lectura.cantPalabras(),"NUM");
         codificacionHuffman=new Huffman(lectura.vectorPalabras(),lectura.cantPalabras(),"NUM");
+
         codificacionRlc.comprimir("imagen.raw");
         codificacionHuffman.comprimir("imagen.raw");
         codificaShannonFano.comprimir("imagen.raw");
@@ -54,5 +56,6 @@ public class Main {
         codificacionHuffman.informe();
         codificaShannonFano.informe();
         codificacionRlc.informe();
+
     }
 }

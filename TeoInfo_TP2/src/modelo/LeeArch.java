@@ -14,8 +14,8 @@ public class LeeArch {
     private FileReader fr = null;
     private BufferedReader br = null;
 
-    private int cantidadUnicaDePalabras =0,cantidadTotalDeSimbolos=0;
-
+    private int cantidadUnicaDePalabras =0, cantidadTotalDePalabras =0;
+    private int cantidadUnicaDeNumeros =0, cantidadTotalDeNumeros =0;
 
     public void lee(String nombreArch) throws IOException {
         this.esImagen=nombreArch.contains(".raw");
@@ -25,11 +25,9 @@ public class LeeArch {
         fr = new FileReader(archivo);
         br=new BufferedReader(fr);
         String linea;
-        if(!this.esImagen) {
-
             while ((linea=br.readLine() )!= null){
                 for(int i=0;i<linea.length();i++){
-                    cantidadTotalDeSimbolos++;
+                    cantidadTotalDePalabras++;
                     if(palabras.get(linea.charAt(i))==null){
                         palabras.put(linea.charAt(i),1);
                         cantidadUnicaDePalabras++;
@@ -40,7 +38,24 @@ public class LeeArch {
                         palabras.put(linea.charAt(i),contaux+1);
                     }
                 }
-                cantidadTotalDeSimbolos++;
+                /*
+                * Aca se calcula en caso de que el archivo se una imagen
+                *
+                * */
+                cantidadTotalDeNumeros++;
+                if (numeros.get(linea) == null) {
+                    numeros.put(linea, 1);
+                    cantidadUnicaDeNumeros++;
+                } else {
+                    int contaux;
+                    contaux = numeros.get(linea);
+                    numeros.remove(linea);
+                    numeros.put(linea, contaux + 1);
+                }/*
+                *Aca termina el caso de las imagenes
+                **/
+
+                cantidadTotalDePalabras++;
                 if(palabras.get('\n')==null){
                     palabras.put('\n',1);
                     cantidadUnicaDePalabras++;
@@ -51,21 +66,7 @@ public class LeeArch {
                     palabras.put('\n',contaux+1);
                 }
             }
-            this.crearvec();
-        }else{
-            while ((linea=br.readLine() )!= null) {
-                    cantidadTotalDeSimbolos++;
-                    if (numeros.get(linea) == null) {
-                        numeros.put(linea, 1);
-                        cantidadUnicaDePalabras++;
-                    } else {
-                        int contaux;
-                        contaux = numeros.get(linea);
-                        numeros.remove(linea);
-                        numeros.put(linea, contaux + 1);
-                    }
-            }
-        }
+        this.crearvec();
     }
 
     public HashMap<String, Integer> getTablaNumeros() {
@@ -91,7 +92,7 @@ public class LeeArch {
 
 
     public int cantPalabras() {
-        return cantidadTotalDeSimbolos;
+        return cantidadTotalDePalabras;
     }
 
     public void muestra(){
