@@ -1,7 +1,8 @@
 package main;
 
-import modelo.algoritmosgit .Huffman;
+
 import modelo.LeeArch;
+import modelo.algoritmos.Huffman;
 import modelo.algoritmos.Rlc;
 import modelo.algoritmos.ShannonFano;
 

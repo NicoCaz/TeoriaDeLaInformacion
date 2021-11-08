@@ -13,7 +13,6 @@ import static Utilidades.Calculos.*;
 public class Huffman implements ICodificadores, IInforme{
     private Double entropia=0.0;
     private Double longMedia=0.0;
-    private String tipoArch;
     private int cantPal;
     private HashMap<Character, String>tabla=new HashMap<>();
     private NodoHuffman arbolDeHuffman=null;
@@ -90,7 +89,7 @@ public class Huffman implements ICodificadores, IInforme{
                 this.cantidadDeByts+=tabla.get(linea.charAt(i)).length();
             }
             System.out.print(tabla.get('\n'));
-
+            this.cantidadDeByts+=tabla.get('\n').length();
         }
         archivoSalida.close();
     }

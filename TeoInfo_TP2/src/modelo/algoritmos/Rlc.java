@@ -13,7 +13,6 @@ import static Utilidades.Calculos.rendimiento;
 public class Rlc implements ICodificadores, IInforme{
     private File archivo = null;
     private Boolean esImagen;
-    private String tipoArch;
     private int cantPal=0;
     private int tamanioEnBits =0;
     private FileReader fr = null;
@@ -26,11 +25,6 @@ public class Rlc implements ICodificadores, IInforme{
     public Rlc(String nombreArch, HashMap<String,Integer> numeros,double entropia){
         this.entropia=entropia;
         this.numeros=numeros;
-        if(nombreArch.contains(".txt"))
-            this.tipoArch="TEXT";
-        else {
-            this.tipoArch="NUM";
-        }
         try {
             this.comprimir(nombreArch);
         } catch (IOException e) {
@@ -75,6 +69,7 @@ public class Rlc implements ICodificadores, IInforme{
                             System.out.print(cont + "" + ant);
                             cont = 1;
                             ant = linea.charAt(i);
+                            tamanioEnBits+=2*8;
                         }
                     }
                 }
@@ -82,7 +77,6 @@ public class Rlc implements ICodificadores, IInforme{
                 System.out.print(cont + "" + ant);
                 System.out.print(1 + "" + '\n');
                 ant = null;
-                tamanioEnBits +=(linea.length()+1)*8;//+1 salto de linea y *8 por el tamanio de un char
             }
         }else{
         	linea = br.readLine();
