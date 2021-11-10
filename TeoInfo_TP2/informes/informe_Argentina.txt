@@ -1,21 +1,21 @@
 
 ----------------Huffman----------------
-Rendimiento -> 0.9923149988321446
-Redundancia -> 0.007685001167855421
-Longitud media expresada en Bits-> 4.544344995931652
-Entropia -> 4.50942169933078
-La tasa de comprecion es de -> 1.7604297224709042
+Rendimiento -> 0.9929624266096747
+Redundancia -> 0.007037573390325291
+Longitud media expresada en Bits-> 4.5976781425140105
+Entropia -> 4.5653216451609735
+La tasa de compresion es de -> 1.7400087070091423
 
 ----------------Shannon Fano----------------
-Rendimiento -> 0.989127122698113
-Redundancia -> 0.010872877301887018
-Longitud media expresada en Bits-> 4.55899104963385
-Entropia -> 4.50942169933078
-La tasa de comprecion es de -> 1.7547742280920935
+Rendimiento -> 0.9920986054468998
+Redundancia -> 0.007901394553100238
+Longitud media expresada en Bits-> 4.60168134507606
+Entropia -> 4.5653216451609735
+La tasa de compresion es de -> 1.7384949978251414
 
 ----------------R.L.C----------------
-Rendimiento -> 0.2818388562081737
-Redundancia -> 0.7181611437918263
+Rendimiento -> 0.28533260282256084
+Redundancia -> 0.7146673971774391
 Longitud media expresada en Bits-> 16.0
-Entropia -> 4.50942169933078
-La tasa de comprecion es de -> 0.5301984469370147
+Entropia -> 4.5653216451609735
+La tasa de compresion es de -> 0.5296861747243427
