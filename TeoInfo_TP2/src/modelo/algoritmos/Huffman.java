@@ -101,7 +101,7 @@ public class Huffman implements ICodificadores, IInforme{
         System.out.println("Redundancia -> "+redundancia(getEntropia(),getLongMedia()));
         System.out.println("Longitud media expresada en Bits-> "+ getLongMedia());
         System.out.println("Entropia -> "+getEntropia());
-        System.out.println("La tasa de comprecion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());// si es string
+        System.out.println("La tasa de compresion es de -> "+(this.cantPal*8)/(double)this.tamanioEnByts());// si es string
     }
 
 
