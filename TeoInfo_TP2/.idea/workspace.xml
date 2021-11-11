@@ -6,21 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c6bc70de-542f-4375-8bb6-d9d067dd1958" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archivosSalida/Aleman.Fan" beforeDir="false" afterPath="$PROJECT_DIR$/archivosSalida/Aleman.Fan" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archivosSalida/Aleman.Huf" beforeDir="false" afterPath="$PROJECT_DIR$/archivosSalida/Aleman.Huf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archivosSalida/Aleman.RLC" beforeDir="false" afterPath="$PROJECT_DIR$/archivosSalida/Aleman.RLC" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archivosSalida/Argentina.Fan" beforeDir="false" afterPath="$PROJECT_DIR$/archivosSalida/Argentina.Fan" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archivosSalida/Argentina.Huf" beforeDir="false" afterPath="$PROJECT_DIR$/archivosSalida/Argentina.Huf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archivosSalida/Argentina.RLC" beforeDir="false" afterPath="$PROJECT_DIR$/archivosSalida/Argentina.RLC" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archivosSalida/imagen.RLC" beforeDir="false" afterPath="$PROJECT_DIR$/archivosSalida/imagen.RLC" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/informes/informe_Aleman.txt" beforeDir="false" afterPath="$PROJECT_DIR$/informes/informe_Aleman.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/informes/informe_Argentina.txt" beforeDir="false" afterPath="$PROJECT_DIR$/informes/informe_Argentina.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/informes/informe_imagen.txt" beforeDir="false" afterPath="$PROJECT_DIR$/informes/informe_imagen.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/algoritmos/Huffman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/algoritmos/Huffman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/algoritmos/RLC2.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/algoritmos/Rlc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/algoritmos/Rlc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/algoritmos/ShannonFano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/algoritmos/ShannonFano.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +46,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TeoInfo_Tp1/LecturaYCalculos/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TallerProg1/TP 2 Testing/Codigo_A/.project" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">

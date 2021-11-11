@@ -74,8 +74,8 @@ public class Rlc implements ICodificadores, IInforme{
                     }
                 }
                 this.cantPal++;
-                System.out.print(cont + "" + ant);
-                System.out.print(1 + "" + '\n');
+                System.out.print(cont + "" + ant);//codifico el ultimo elemento de la fila
+                System.out.print(1 + "" + '\n');  //codifico el salto de linea
                 ant = null;
             }
         }else{
@@ -113,9 +113,9 @@ public class Rlc implements ICodificadores, IInforme{
 
     @Override
     public double getLongMedia() {
-        if(!this.esImagen)
-            return 16.0;
-        return 20;
+
+        return this.tamanioEnBits/(this.cantPal+0.0);
+
     }
 
     @Override
