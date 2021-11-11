@@ -14,8 +14,8 @@ Entropia -> 1.5359728140772795
 La tasa de compresion es de -> 4.7395729756115195
 
 ----------------R.L.C----------------
-Rendimiento -> 1.8661756459653056
-Redundancia -> -0.8661756459653056
-Longitud media expresada en Bits-> 0.82305908203125
+Rendimiento -> 0.09035134200454585
+Redundancia -> 0.9096486579954541
+Longitud media expresada en Bits-> 17.0
 Entropia -> 1.5359728140772795
-La tasa de compresion es de -> 9.719836855765665
+La tasa de compresion es de -> 11.435102183253724

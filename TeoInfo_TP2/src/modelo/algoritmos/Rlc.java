@@ -14,11 +14,11 @@ public class Rlc implements ICodificadores, IInforme{
     private File archivo = null;
     private Boolean esImagen;
     private int cantPal=0;
+    private int cantFinal=0;
     private int tamanioEnBits =0;
     private FileReader fr = null;
     private BufferedReader br = null;
     PrintStream archivoSalida = null;
-    private Palabra[] simbolos;
     private double entropia;
     HashMap<String,Integer> numeros;
 
@@ -70,6 +70,7 @@ public class Rlc implements ICodificadores, IInforme{
                             cont = 1;
                             ant = linea.charAt(i);
                             tamanioEnBits+=2*8;
+                            cantFinal++;
                         }
                     }
                 }
@@ -93,7 +94,8 @@ public class Rlc implements ICodificadores, IInforme{
                         System.out.print(cont+""+color);
                         cont=1;
                         color=Integer.parseInt(linea);
-                        tamanioEnBits+=(12+8);// 12 por la cantidad y 8 por el tamanio del numero (se eligio 12 por la cantidad de repeticiones del numero 6 es alta
+                        tamanioEnBits+=(14+3);// 14 por la cantidad y 3 por el tamanio del numero (se eligio 12 por la cantidad de repeticiones del numero 6 es alta)
+                        cantFinal++;
                     }
                 }
             }
@@ -114,7 +116,7 @@ public class Rlc implements ICodificadores, IInforme{
     @Override
     public double getLongMedia() {
 
-        return this.tamanioEnBits/(this.cantPal+0.0);
+        return this.tamanioEnBits/(this.cantFinal+0.0);
 
     }
 
